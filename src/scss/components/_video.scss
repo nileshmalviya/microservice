@@ -1,0 +1,329 @@
+.video-section{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 572px;
+    video,img{
+        width: 100%;
+        object-fit: fill; 
+        margin-top: 45px;  
+    }
+    .overlay{
+      position: absolute;
+      bottom: 27px;
+      h2{
+        font-size: 79px;
+        font-weight: 700;
+        color: white;
+        margin-left: 28px;
+        line-height: 79px;
+      }
+    }
+    @include media-breakpoint-up(md) {
+      video,img{
+        object-fit: fill; 
+        margin-top: -15px;   
+      }
+    }
+    @include media-breakpoint-up(xl) {
+      video{
+        margin-top: -64px;
+        object-fit: fill;
+      }
+    }
+}
+@media (max-width: 1118px){
+  .video-section{
+    height: 437px !important;
+    video{
+      // margin-top: -31px;
+    }
+
+    .overlay {
+      bottom: 2px;
+      h2 {
+        font-size: 58px;
+        margin-left: 21px;
+        line-height: 56px;
+        }
+    }
+  }
+}
+@media (max-width: 1024px){
+  .video-section{
+      width: 100%;
+      position: relative;
+      height: 423px !important;
+      overflow: hidden;
+      video{
+        // margin-top: -18px;
+      }
+
+    .overlay {
+      bottom: 0px;
+      h2 {
+        font-size: 68px;
+        margin-left: 16px;
+        line-height: 68px;
+        }
+    }
+  }
+}
+
+@media (max-width: 769px){
+  .video-section{
+    width: 100%;
+    position: relative;
+    height: 357px !important;
+    overflow: hidden;
+    video{
+      // margin-top: -2px;
+    }
+    .overlay{
+      bottom: 6px;
+       h2 {
+        font-size: 45px;
+        margin-left: 14px;
+        line-height: 43px;
+      }
+    }
+  }
+}
+@media (max-width: 631px){
+  .video-section{
+    height: 297px !important;
+    video{
+      // margin-top: 2px;
+    }
+    .overlay{
+      position: absolute;
+      bottom: 12px;
+      h2{
+        font-size: 43px;
+        margin-left: 14px;
+        line-height: 40px;
+      }
+    }
+  }
+
+  .video-section-gambling{
+    .video-text{
+      h2{
+        font-size: 47px !important;
+        top: 68% !important; 
+       }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .video-section{
+    height: 263px !important;
+    video{
+      // margin-top: 34px;
+    }
+    .overlay{
+      position: absolute;
+      bottom: 1px;
+      h2{
+        font-size: 32px;
+        margin-left: 2px;
+        line-height: 30px;
+      }
+    }
+  }
+
+}
+@media (max-width: 420px){
+  .video-section{
+    height: 232px !important;
+    video{
+      // margin-top: 42px;
+    }
+    .overlay{
+      font-size: 30px;
+      margin-left: 9px;
+      line-height: 28px;
+    }
+  }
+}
+.section-cover{
+    overflow: hidden;
+}
+.with-video{
+    .image-mobile{
+        display: none;
+        @media only screen and (max-width: 1024px) {
+            display: block;
+          }
+    }
+}
+
+.item-vid{
+    position: relative;
+    overflow: hidden;
+    video{
+        position: absolute;
+        top:0;
+        left:-78px;
+        @include media-breakpoint-up(s) {
+           position: relative;
+           left: 0;
+           width: 100%;
+          }
+    }
+    &.last{
+       video{
+        left: -45px;
+        @include media-breakpoint-up(s) {
+            left:0;
+        }
+       }
+    }
+}
+.image-mobile{
+    video{
+        width:100%;
+    }
+}
+
+.aboutpagevideosection{
+  width: 100%;
+  position: relative;
+  video{
+      width: 100%;
+      padding-top: 50px;
+  }
+}
+
+@media (max-width: 768px){
+  .aboutpagevideosection{
+    video{
+      padding-top: 66px;
+    }
+  }
+}
+
+
+
+  .video-section-gambling{
+    width: 100%;
+    position: relative;
+    video{
+        width: 100%;
+        padding-top: 66px;
+      }
+  }
+
+
+
+
+
+  .video-section-gambling{
+    .video-text{
+    h2{
+      position: absolute;
+      top: 56%;
+      left: 0px;
+      text-align: center;
+      width: 100%;
+      font-size: 70px;
+      line-height: 60px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      transform: translate(0%, -50%);
+      }
+    }
+  }
+
+ 
+  @media (max-width: 520px){
+    .video-section-gambling{
+      .video-text{
+        h2{
+          font-size: 32px !important;
+          top: 70% !important;
+         }
+      }
+    }
+  }
+  
+
+  @media (max-width: 768px){
+    .video-section-gambling{
+      .video-text{
+        h2{
+          font-size: 62px ;
+          top: 67% ;
+         }
+      }
+    }
+  }
+
+  @media (min-width: 1024px){
+    .video-section-gambling{
+      .video-text{
+        h2{
+          font-size: 50px ;
+          top: 56% ;
+         }
+      }
+    }
+  }
+ 
+  @media (min-width: 1024px){
+    .video-section-gambling{
+      .video-text{
+        h2{
+          font-size: 70px;
+          top: 56% ;
+         }
+      }
+    }
+  }
+// CSS for new h2 home page test======== start
+.home-page .banner-home{
+  .overlay1 .home-page-text{
+    top: 42%;
+    position: absolute;
+    font-size: 34px;
+    font-weight: 600;
+    color: white;
+    margin-left: 10px;
+    line-height: 31px;
+  }
+  }
+
+   @media (min-width: 769px) and (max-width: 1100px){
+    .home-page .banner-home{
+    .overlay1 .home-page-text{
+      font-size: 56px;
+      margin-left: 14px;
+      line-height: 50px;
+      top: 46%;
+      }
+   }
+  }
+
+  @media (min-width: 631px) and (max-width: 768px){
+    .home-page .banner-home{
+    .overlay1 .home-page-text{
+      font-size: 45px;
+      margin-left: 14px;
+      line-height: 43px;
+      top: 46%;
+      }
+   }
+  }
+
+  @media (min-width: 500px) and (max-width: 630px){
+    .home-page .banner-home{
+    .overlay1 .home-page-text{
+      font-size: 43px;
+      margin-left: 14px;
+      line-height: 40px;
+      }
+   }
+  }
+// CSS for new h2 home page test ========End 
+  

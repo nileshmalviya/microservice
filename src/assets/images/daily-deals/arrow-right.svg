@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="81" height="53.337" viewBox="0 0 81 53.337">
+  <defs>
+    <filter id="Path_2259" x="0" y="4.897" width="76.571" height="48.441" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Deals_Arrow_R" data-name="Deals Arrow R" transform="translate(-1013.499 -2507)">
+    <circle id="Ellipse_4" data-name="Ellipse 4" cx="26" cy="26" r="26" transform="translate(1042 2507)" fill="#fff"/>
+    <g id="Group_6946" data-name="Group 6946" transform="translate(1076.994 2521.972) rotate(90)">
+      <g id="Group_6945" data-name="Group 6945" transform="translate(0 0)">
+        <g transform="matrix(0, -1, 1, 0, -14.97, 63.49)" filter="url(#Path_2259)">
+          <path id="Path_2259-2" data-name="Path 2259" d="M.091,10.929,10.932.093a.288.288,0,0,1,.406-.017l.016.017L22.2,10.929a.288.288,0,0,1,.015.407l-.015.015-1.4,1.4L12.251,4.2v45.07a1.22,1.22,0,0,1-1.216,1.222h-.005a1.215,1.215,0,0,1-1.2-1.222V4.4L1.482,12.748l-1.4-1.4a.3.3,0,0,1,0-.418l.005,0Z" transform="translate(63.49 14.97) rotate(90)" fill="#180d1d" stroke="#180d1d" stroke-width="2" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

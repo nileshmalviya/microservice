@@ -1,0 +1,34 @@
+<!-- Our Raffles -->
+<section
+  class="section-our-raffles mt-0"
+  data-aos="fade-up"
+  data-aos-anchor-placement="top-bottom"
+  data-aos-delay="0"
+  data-aos-duration="1500"
+  data-aos-easing="ease-in-out"
+  data-aos-mirror="false"
+  data-aos-offset="0"
+  data-aos-once="false"
+>
+<div class="raffle_container">
+  <div class="row">
+    <div *ngFor="let raffle of raffles" class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <div class="raffle-item">
+        <div class="raffle-image">
+          <img [src]="raffle?.productImageUrl[0]">
+          <!-- <img [src]="raffle?.productImageUrl">  -->
+        </div>
+        <div class="raffle-countdow">
+          <app-flipdown (finished)="finishedHandler($event)" [endDate]="raffle?.raffleDate"
+                        [id]="raffle?.uniqueId" [class]="raffle?.hideDay ? 'hideDayclass':'showdayclass'"></app-flipdown>
+        </div>
+        <div class="raffle-text">{{raffle?.raffleName}}</div>
+        <div class="raffle-number">{{'raffle_no' | translate}}- <span>#{{raffle?.raffleUniqueId}}</span></div>
+        <!-- <div class="raffle-announce">Winner Announced</div> -->
+        <div class="raffle-date">{{formateDate(raffle?.raffleDate)}}</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</section>

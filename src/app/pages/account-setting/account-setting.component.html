@@ -1,0 +1,140 @@
+<div class="row my-setting-section">
+    <div class="col-md-12">
+        <div class="main_heading">
+        <h4><img src="assets/images/user.svg">{{'my_account_setting' | translate}}</h4>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="mySettingSec">
+            <!-- <app-loader *ngIf="loading; else content"></app-loader>
+            <ng-template #content></ng-template>  -->
+            <div class="account-section-inner">
+                <form
+                #settingForm="ngForm"
+                class="setting-form"
+                (ngSubmit)="Submit(settingForm)"
+                >
+                <!-- (ngSubmit)="Submit(settingForm)" -->
+                  <div class="form-group row">
+                      <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                        <label for="first-name">{{'first_name' | translate}}</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="first-name"
+                          placeholder="{{'firstNamePlaceholder' | translate}}"
+                          name="firstName"
+                          [(ngModel)]="userDataModel.firstName"
+
+                          autocomplete="off"
+                        />
+                        <!-- <span class="form-feedback">{{"required_field_error" | translate}}</span> -->
+                      </div>
+                      <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                        <label for="last-name">{{'last_name' | translate}}</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="last-name"
+                          placeholder="{{'lastNamePlaceholder' | translate}}"
+                          name="lastName"
+                          [(ngModel)]="userDataModel.lastName"
+
+                          autocomplete="off"
+                        />
+                        <!-- <span class="form-feedback">{{"required_field_error" | translate}}</span> -->
+                      </div>
+                  </div>
+                  <div class="form-group row custom-align-items">
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                      <label for="username">{{'username' | translate}}</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="username"
+                        placeholder="Enter your username"
+                        name="username"
+                        [(ngModel)]="userDataModel.fullName"
+                        autocomplete="off"
+                        readonly
+                      />
+                      <!-- <span class="form-feedback">{{"invalid mail" | translate}}</span> -->
+                    </div>
+                    <div class="col-lg-5 col-md-8 col-sm-8 col-12">
+                        <label for="password">{{'Password' | translate}}</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          placeholder="Enter your password"
+                          name="password"
+                          [(ngModel)]="userDataModel.password"
+                          autocomplete="off"
+                          readonly
+                        />
+                        <!-- <span class="form-feedback">{{"required_field_error" | translate}}</span> -->
+                      </div>
+                      <div class="col-lg-2 col-md-4 col-sm-4 col-12 mt-2">
+                          <button type="button" class="btn-rounded btn-change-password" (click)="initChangePassword(userDataModel)">{{'change_password' | translate}}</button>
+                          <!-- <img src="../../../assets/images/Button-03.png" style="width: 100%;"> -->
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                      <label for="email">{{'Email' | translate}}</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Enter your email"
+                        name="email"
+                        [(ngModel)]="userDataModel.email"
+
+                        email
+                        autocomplete="off"
+                        readonly
+                      />
+                      <!-- <span class="form-feedback">{{"invalid mail" | translate}}</span> -->
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12 phone-validation">
+                        <label for="phone-number">{{'phone' | translate}}</label>
+                        <input
+                          type="tel"
+                          class="form-control"
+                          id="phone-number"
+                          placeholder="{{'phonePlaceholder' | translate}}"
+                          name="mobile"
+                          [pattern]="mobNumberPattern"
+                          [(ngModel)]="userDataModel.phone"
+                          autocomplete="off"
+                        />
+                        <span class="form-feedback" style="right: 20px;">Please Enter Valid Phone Number</span>
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 button-section">
+                        <button
+                        class="btn-rounded btn-login mt-3"
+                        type="submit"
+                        >
+                        <!--
+                             [disabled]="loading"
+                             <span *ngIf="loading; else contactText">Loading</span>
+                        <ng-template #contactText> -->
+                          <span>{{'save' | translate}}</span>
+                        <!-- </ng-template> -->
+                        </button>
+                        <button
+                        class="btn-rounded rmv-btn-img btn-cancel mt-3"
+                        type="button"
+                        >
+                          <span>{{'cancel' | translate}}</span>
+                        </button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

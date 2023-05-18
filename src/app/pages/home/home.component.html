@@ -1,0 +1,162 @@
+<!-- Homepage -->
+<div class="page home-page">
+<section class="banner-home">
+  <div class={{videoSectionclass}}>
+    <video playsinline autoplay="autoplay" *ngIf="ShowVideoImg"  [muted]="true" loop="true" id="video-banner">
+    <source src="assets/video/HeaderVideo.mp4" type="video/mp4" >
+    </video>
+
+    <img *ngIf="!ShowVideoImg" style="margin-top: 50px ;width: 100%;height: 100%; " src="../../../assets/images/Header_Singleframe40.png"/> 
+    <div class="overlay" [ngStyle]="{'display':displaytext}">
+      <h2>{{'home_page_header_video_text_1' | translate}}  <br>{{'home_page_header_video_text_2' | translate}} <br>{{'home_page_header_video_text_3' | translate}}<br>{{'home_page_header_video_text_4' | translate}}</h2>
+    </div>
+  </div>
+  <div class="overlay1" *ngIf="ShowVideoImg" [ngStyle]="{'display':displaytext2}">
+    <h2 class="home-page-text">{{'home_page_header_video_text_1' | translate}}  <br>{{'home_page_header_video_text_2' | translate}} <br>{{'home_page_header_video_text_3' | translate}}<br>{{'home_page_header_video_text_4' | translate}}</h2>
+  </div>
+  
+
+
+  <!-- <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+
+        <img src="../../../assets/images/home-banner-new.png"/>
+      </div>
+      <div class="carousel-caption">
+        <ul class="banner-logo">
+          <li><img src="../../../assets/images/banner-logo.svg"/></li>
+          <li><img src="../../../assets/images/banner-logo1.svg"/></li>
+          <li><img src="../../../assets/images/banner-logo2.svg"/></li>
+        </ul>
+        <h2>{{"home_your_day_header" | translate | uppercase}}</h2>
+        <h3>{{"home_your_day_sub_header" | translate}}</h3>
+        <div class="banner-btn" >
+          <button *ngIf="!accountService.connectedUser;" class="btn-rounded" type="button" (click)="modalService.openRegisterModal()">
+            <span [attr.data-hover]="'join_now' | translate | uppercase">{{"join_now" | translate | uppercase}}</span>
+          </button>
+          <a (click)="scroll()" *ngIf="accountService.connectedUser;" class="btn-rounded btn-outlined-white btn-join ml-4">
+            <span [attr.data-hover]="'enter_to_win' | translate | uppercase">{{"enter_to_win" | translate | uppercase}}</span>
+          </a>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+
+        <img src="../../../assets/images/home-banner-new.png"/>
+      </div>
+      <div class="carousel-caption">
+        <ul class="banner-logo">
+          <li><img src="../../../assets/images/banner-logo.svg"/></li>
+          <li><img src="../../../assets/images/banner-logo1.svg"/></li>
+          <li><img src="../../../assets/images/banner-logo2.svg"/></li>
+        </ul>
+        <h2>{{"home_your_day_header" | translate | uppercase}}</h2>
+        <h3>{{"home_your_day_sub_header" | translate }}</h3>
+        <div class="banner-btn" >
+          <button *ngIf="!accountService.connectedUser;" class="btn-rounded" type="button" (click)="modalService.openRegisterModal()">
+            <span [attr.data-hover]="'join_now' | translate | uppercase">{{"join_now" | translate | uppercase}}</span>
+          </button>
+          <a (click)="scroll()" *ngIf="accountService.connectedUser;" class="btn-rounded btn-outlined-white btn-join ml-4">
+            <span [attr.data-hover]="'Enter To Win' | translate | uppercase">{{"Enter To Win" | translate | uppercase}}</span>
+          </a>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+
+        <img src="../../../assets/images/home-banner-new.png"/>
+      </div>
+      <div class="carousel-caption">
+        <ul class="banner-logo">
+          <li><img src="../../../assets/images/banner-logo.svg"/></li>
+          <li><img src="../../../assets/images/banner-logo1.svg"/></li>
+          <li><img src="../../../assets/images/banner-logo2.svg"/></li>
+        </ul>
+        <h2>{{"home_your_day_header" | translate | uppercase}}</h2>
+        <h3>{{"home_your_day_sub_header" | translate | uppercase}}</h3>
+        <div class="banner-btn" >
+          <button *ngIf="!accountService.connectedUser;" class="btn-rounded" type="button" (click)="modalService.openRegisterModal()">
+            <span [attr.data-hover]="'join_now' | translate | uppercase">{{"join_now" | translate | uppercase}}</span>
+          </button>
+          <a (click)="scroll()" *ngIf="accountService.connectedUser;" class="btn-rounded btn-outlined-white btn-join ml-4">
+            <span [attr.data-hover]="'Enter To Win' | translate | uppercase">{{"Enter To Win" | translate | uppercase}}</span>
+          </a>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+
+        <img src="../../../assets/images/home-banner-new.png"/>
+      </div>
+      <div class="carousel-caption">
+        <ul class="banner-logo">
+          <li><img src="../../../assets/images/banner-logo.svg"/></li>
+          <li><img src="../../../assets/images/banner-logo1.svg"/></li>
+          <li><img src="../../../assets/images/banner-logo2.svg"/></li>
+        </ul>
+        <h2>{{"home_your_day_header" | translate | uppercase}}</h2>
+        <h3>{{"home_your_day_sub_header" | translate | uppercase}}</h3>
+        <div class="banner-btn" >
+          <button *ngIf="!accountService.connectedUser;" class="btn-rounded" type="button" (click)="modalService.openRegisterModal()">
+            <span [attr.data-hover]="'join_now' | translate | uppercase">{{"join_now" | translate | uppercase}}</span>
+          </button>
+          <a (click)="scroll()" *ngIf="accountService.connectedUser;" class="btn-rounded btn-outlined-white btn-join ml-4">
+            <span [attr.data-hover]="'Enter To Win' | translate | uppercase">{{"Enter To Win" | translate | uppercase}}</span>
+          </a>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel> -->
+  <!-- <button class="btn-scroll-down" type="button" (click)="scroll()">
+    <span>{{'scroll_dwn' | translate | uppercase}}</span>
+    <img class="arrow" src="assets/images/cover-slider/scroll-down-arrow.svg">
+  </button> -->
+</section>
+  <!-- Cover -->
+  <!-- <section class="section-cover with-video">
+
+    <div class="video-section">
+      <video autoplay="autoplay" muted loop="true" id="video-banner">
+        <source src="assets/video/home.mp4" type="video/mp4" >
+      </video>
+    </div>
+    <div class="image-mobile">
+      <video autoplay="autoplay" loop="true" muted id="video-banner-mobile">
+        <source src="assets/video/home_mobile.mp4" type="video/mp4" >
+      </video>
+    </div>
+    <img class="bottom-shape d-none d-xl-block" src="assets/images/cover-slider/bottom-shape.svg">
+    <img class="bottom-shape d-xl-none" src="assets/images/cover-slider/bottom-shape-mobile.svg">
+    <button class="btn-scroll-down" type="button" (click)="scroll()">
+      <span>{{'scroll_dwn' | translate | uppercase}}</span>
+      <img class="arrow" src="assets/images/cover-slider/scroll-down-arrow.svg">
+    </button>
+  </section> -->
+
+  <!-- Our Raffles -->
+  <a #raffles></a>
+  <app-raffles-swiper  id="rafflescroll"></app-raffles-swiper>
+
+
+
+  <!-- How To Win -->
+  <!-- <app-how-to-win></app-how-to-win> -->
+  <!-- How To Win New -->
+  <app-how-to-win-new></app-how-to-win-new>
+  <p class="text-center mt-5">
+    <button (click)="scroll()" style="width: 226px;font-size: 16px;" type="button" class=" btn-scroll-down btn-rounded mt-4"><span attr.data-hover="{{'enter_to_win_now' | translate | uppercase}}">{{'enter_to_win_now' | translate | uppercase}}</span></button>
+ </p>
+  <!-- Daily deals -->
+ <!-- <app-daily-deals></app-daily-deals> -->
+
+</div>
+<style>
+  .overlay{
+    display: none;
+  }
+
+</style>

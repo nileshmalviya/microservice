@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Futura Light';
+    src: url('FuturaLT.eot');
+    src: local('Futura LT Light'), local('FuturaLT'),
+        url('FuturaLT.eot?#iefix') format('embedded-opentype'),
+        url('FuturaLT.woff') format('woff'),
+        url('FuturaLT.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Regular';
+    src: url('FuturaLT-Light.eot');
+    src: local('Futura LT Light'), local('FuturaLT-Light'),
+        url('FuturaLT-Light.eot?#iefix') format('embedded-opentype'),
+        url('FuturaLT-Light.woff') format('woff'),
+        url('FuturaLT-Light.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura';
+    src: url('FuturaLT-Bold.eot');
+    src: local('Futura LT Bold'), local('FuturaLT-Bold'),
+        url('FuturaLT-Bold.eot?#iefix') format('embedded-opentype'),
+        url('FuturaLT-Bold.woff') format('woff'),
+        url('FuturaLT-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Heavy';
+    src: url('FuturaLT-Heavy.eot');
+    src: local('Futura LT Heavy'), local('FuturaLT-Heavy'),
+        url('FuturaLT-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('FuturaLT-Heavy.woff') format('woff'),
+        url('FuturaLT-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}

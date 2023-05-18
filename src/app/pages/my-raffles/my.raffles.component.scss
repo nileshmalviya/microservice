@@ -1,0 +1,44 @@
+.my-raffle-section {
+    .main_heading {
+        h4 {
+            font-size: 32px;
+            font-family: 'Gellix';
+            font-weight: bold;
+            color: #232323;
+            display: flex;
+            align-items: center;
+        }
+    }
+    .sub_heading {
+        text-align: center;
+        padding: 3% 0;
+        h2 {
+            font-size: 48px;
+            font-family: 'Gellix';
+            color: #FF3C4C;
+            span {
+                color: #000;
+            }
+        }
+    }
+    .myRaffleSec {
+        //box-shadow: 0px 6px 9px 12px #000 inset;
+        padding: 0% 15px;
+        max-width: 1140px;
+        margin: 0px auto;
+        // background-color: #E2E2E2;
+    }
+}
+
+@media (max-width: 767px){
+  .my-raffle-section .myRaffleSec{ max-width: 540px;}
+}
+@media (max-width: 992px){
+    .my-raffle-section {
+        .main_heading {
+            display: none;
+        }
+    }
+}
+
+

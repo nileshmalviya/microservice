@@ -1,0 +1,70 @@
+<section class="section-how-to-win"
+         data-aos="fade-up"
+         data-aos-anchor-placement="top-bottom"
+         data-aos-delay="0"
+         data-aos-duration="1500"
+         data-aos-easing="ease-in-out"
+         data-aos-mirror="false"
+         data-aos-offset="0"
+         data-aos-once="false">
+  <!-- Section Title -->
+  <div class="section-title">
+    <svg>
+      <symbol id="howtowin-text">
+        <text dy=".35em" text-anchor="middle" x="50%" y="50%">{{'how_to_win' | translate | uppercase}}</text>
+      </symbol>
+      <use class="text text-b" xlink:href="#howtowin-text"></use>
+      <use class="text" xlink:href="#howtowin-text"></use>
+      <use class="text" xlink:href="#howtowin-text"></use>
+      <use class="text" xlink:href="#howtowin-text"></use>
+      <use class="text" xlink:href="#howtowin-text"></use>
+      <use class="text" xlink:href="#howtowin-text"></use>
+    </svg>
+  </div>
+
+  <div class="how-to-win">
+    <!-- Video container -->
+    <div class="video-container">
+      
+      <video autoplay [muted]="true" loop *ngFor="let item of items" [ngClass]="{'d-none': selectedItem?.id !== item.id}">
+        <source src="{{item.srcVideo}}" type="video/mp4">
+        {{'video_unsupported' | translate}}
+      </video>
+    </div>
+
+    <!-- items container -->
+    <div class="items-container">
+      <!-- item -->
+
+      <div class="item item-vid">
+        <video autoplay="autoplay" loop="true" [muted]="true" id="home-video-1" >
+          <source src="assets/video/1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item item-vid">
+        <video autoplay="autoplay" loop="true" [muted]="true" id="home-video-2" >
+          <source src="assets/video/2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item item-vid last">
+        <video autoplay="autoplay" loop="true" [muted]="true" id="home-video-3" >
+          <source src="assets/video/3.mp4" type="video/mp4">
+        </video>
+      </div>
+     
+    </div>
+
+    <!-- Grid (Lines) -->
+    <div class="grid-container">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a class="btn-rounded btn-lets-start" href="#">
+      <span [attr.data-hover]="'lets_start' | translate">{{'lets_start' | translate}}</span>
+    </a>
+  </div>
+</section>

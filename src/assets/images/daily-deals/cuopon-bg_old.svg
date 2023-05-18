@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="517.07" height="409.403" viewBox="0 0 517.07 409.403">
+  <defs>
+    <filter id="Cuopon_Bg" x="0" y="0" width="517.07" height="409.403" filterUnits="userSpaceOnUse">
+      <feOffset dy="13" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="23" result="blur"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Cuopon_Bg)">
+    <path id="Cuopon_Bg-2" data-name="Cuopon Bg" d="M379.07,271.4H0V156.883c10.449-.7,18.633-9.875,18.633-20.9s-8.184-20.2-18.633-20.9V0H379.07V109.712c-.417-.028-.846-.042-1.276-.042-10.978,0-19.909,9.395-19.909,20.942s8.931,20.941,19.909,20.941c.425,0,.854-.014,1.276-.042V271.4Z" transform="translate(69 56)" fill="#fff"/>
+  </g>
+</svg>

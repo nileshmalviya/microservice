@@ -1,0 +1,2289 @@
+//////////////////////////////////////////
+// Modals
+//////////////////////////////////////////
+@import "../variables";
+
+.modal-dialog-centered {
+  min-height: 100% ;
+}
+
+//////////////////////////////////////////
+// Base-modal
+//////////////////////////////////////////
+.base-modal,
+.small-modal {
+  .modal-dialog {
+    width: 100%;
+    max-width: 86.406vw;
+    margin: 0 auto;
+    @include media-breakpoint-up(xl) {
+      max-width: 60.417vw;
+    }
+    .modal-content {
+      .modal-body {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        flex-direction: column-reverse;
+        padding: 0;
+        @include media-breakpoint-up(xl) {
+          flex-direction: row;
+        }
+        .close {
+          display: flex;
+          justify-content: center;
+          // align-items: center;
+          position: absolute;
+          top: 1.719vw;
+          right: 1.719vw;
+          width: 5.625vw;
+          height: 5.625vw;
+          background-color: #f8f8f8;
+          border-radius: 50%;
+          transition: 0.4s;
+          font-weight: normal;
+
+          @include media-breakpoint-up(md) {
+            top: 11px;
+            right: 11px;
+            width: 28px;
+            height: 28px;
+          }
+
+          @include media-breakpoint-up(xl) {
+            top: 18px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+          }
+          span {
+            font-size: 5vw;
+            @include media-breakpoint-up(md) {
+              font-size: 1.5rem;
+            }
+            @include media-breakpoint-up(xl) {
+              font-size: 1.9rem;
+            }
+          }
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+            transform: rotate(45deg);
+          }
+          &:active {
+            background-color: $brand-color-red;
+            color: #fff;
+          }
+        }
+        .page {
+          width: 100%;
+          padding: 1.319vw 6.25vw 4.444vw 6.25vw;
+          min-height: initial !important;
+          position: relative;
+          @include media-breakpoint-up(xl) {
+           // min-height: 60vh;
+            padding: 1.319vw 2.083vw 0.319vw 2.083vw;
+          }
+
+          .sign-up-link {
+            position: absolute;
+            right: 2.813vw;
+            bottom: 2.188vw;
+            font-family: "Gellix";
+            font-size: 4.063vw;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.15;
+            color: $text-color;
+            text-decoration: underline;
+            @include media-breakpoint-up(xl) {
+              right: 1.458vw;
+              bottom: 1.111vw;
+              font-size: 0.903vw;
+            }
+            &:hover {
+              color: $brand-color-red;
+            }
+          }
+
+          .back-to-login {
+            position: absolute;
+            // right: 2.813vw;
+            bottom: 2.188vw;
+            font-family: "Gellix";
+            font-size: 4.063vw;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.15;
+            color: $text-color;
+            text-decoration: underline;
+            @include media-breakpoint-up(xl) {
+              // right: 1.458vw;
+              bottom: 1.111vw;
+              font-size: 0.903vw;
+            }
+            &:hover {
+              color: $brand-color-red;
+            }
+          }
+
+          .form-title {
+          //  padding-top: 4.688vw;
+            @include media-breakpoint-up(xl) {
+              margin-top: 40px;
+              padding: initial;
+            }
+
+            .login-description {
+              display: block;
+              font-family: "Gellix";
+              font-weight: 700;
+              text-align: center;
+              color: $text-color;
+              font-size: 4.688vw;
+              line-height: 1;
+              @include media-breakpoint-up(md) {
+                font-size: 3.906vw;
+              }
+              @include media-breakpoint-up(xl) {
+                font-size: 1.111vw;
+                padding: initial;
+              }
+              &::first-letter {
+                text-transform: capitalize;
+              }
+            }
+            .separator {
+              width: 100%;
+              height: 21px;
+              background-color: #000000;
+              clip-path: polygon(0 0, 50% 65%, 100% 0, 50% 100%);
+            }
+            .mail-description {
+              @include media-breakpoint-up(xl) {
+                max-width: 22.222vw;
+              }
+            }
+          }
+          .login-form,
+          .register-form,
+          .new-pass-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+          .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .custom-control-label::after {
+              top: -0.1rem;
+              left: -1.2rem;
+              transform: scale(1.2);
+            }
+
+            svg {
+              max-height: 12.188vw;
+              @include media-breakpoint-up(md) {
+                max-height: 56px;
+              }
+              @include media-breakpoint-up(xl) {
+                max-height: 3.958vw;
+              }
+            }
+            .form-group {
+              // margin-bottom: 0;
+            }
+            input[type="checkbox"] + label {
+              display: block;
+              margin: 0.1em;
+              cursor: pointer;
+              padding: 0.1em 0.1em 0.1em 0.1em;
+            }
+
+            input[type="checkbox"] {
+              display: none;
+            }
+
+            input[type="checkbox"] + label:before {
+              border: 0.1em solid;
+              background-color: #eaeaea;
+              border-color: #eaeaea;
+              border-radius: 0.2em;
+              display: inline-block;
+              width: 23px;
+              height: 23px;
+              padding-left: 0.2em;
+              padding-bottom: 0.3em;
+              margin-right: 0.2em;
+              vertical-align: bottom;
+              color: transparent;
+              transition: 0.2s;
+              top: 2px;
+            }
+            .age-check-validation::before{
+              border:1px solid red !important
+            }
+
+            input[type="checkbox"] + label:active:before {
+            }
+
+            input[type="checkbox"]:checked + label:before {
+              background-color: #eaeaea;
+              border-color: #eaeaea;
+              color: $brand-color-red;
+            }
+
+            input[type="checkbox"]:checked + label:after {
+              content: url("../../assets/images/icons/v.svg");
+              background-image: none;
+            }
+
+            input[type="checkbox"]:disabled + label:before {
+              transform: scale(1);
+              border-color: #aaa;
+            }
+
+            input[type="checkbox"]:checked:disabled + label:before {
+              transform: scale(1);
+              background-color: $brand-color-red;
+              border-color: $brand-color-red;
+            }
+            .forgot-pass {
+              margin-top: 10px;
+              color: #b4b4b4;
+              text-decoration: underline;
+              margin-bottom: 1.156vw;
+              @include media-breakpoint-up(xl) {
+                margin-bottom: initial;
+              }
+              &:hover {
+                color: $text-color;
+              }
+            }
+          }
+          #login,
+          #reg-1,
+          #reg-2,
+          #new-pass-1,
+          #new-pass-2,
+          #forgot-1,
+          #forgot-2,
+          #mail,
+          #thank-1,
+          #thank-2,
+          #payment {
+            color: $text-color;
+            text-transform: uppercase;
+            text-align: center;
+            font-family: "Gellix", sans-serif;
+            font-size: 8.594vw;
+            font-weight: bold;
+            line-height: 1.09;
+            letter-spacing: 0.46px;
+
+            @include media-breakpoint-up(md) {
+              font-size: 5.99vw;
+            }
+
+            @include media-breakpoint-up(xl) {
+              font-size: 3.194vw;
+            }
+          }
+
+          #payment {
+            @include media-breakpoint-up(xl) {
+              font-size: 2.6vw;
+            }
+          }
+
+          button[type="submit"] {
+            align-self: center;
+          }
+        }
+        .login-img,
+        .register-img,
+        .new-pass-img,
+        .forgot-pass-img,
+        .change-pass-img,
+        .you-got-mail-img {
+          padding: 1.319vw 6.25vw 4.444vw 6.25vw;
+          max-width: 100%;
+          width: 100%;
+          height: 25vw;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          @include media-breakpoint-up(xl) {
+            max-width: 28.208vw;
+            height: initial;
+            padding: 1.319vw 2.083vw 4.444vw 2.083vw;
+            // background-image: url("../../assets/images/modals/login-image.jpg") !important;
+          }
+          @include media-breakpoint-up(md) {
+            // background-image: url("../../assets/images/modals/login-image.jpg") !important;
+          }
+          img {
+            max-width: 100%;
+          }
+        }
+        .login-img {
+          background-image: url("../../assets/images/modals/login-image.jpg");
+        }
+         //.register-img {
+
+          // background-image: url("../../assets/images/modals/mobile_pop_img.png");
+        // }
+        //this css for sign up video modal
+    // .register-video{
+    //   overflow: hidden;
+
+  
+
+    .register-video{
+      div{
+        width: 100%;
+        position: absolute;
+        top: 35%;
+        left: 0px;
+        text-align: center;
+        h2{
+          font-family: "Gellix" !important;
+          display: block;
+          color: #fff;
+          font-weight: 700;
+         font-size: 50px;
+        }
+      }
+      height: 153px;
+    
+      .register_desktop_view{
+        display: none;
+      }
+      .register_mobile_view{
+        width: 100%;
+        height: 153px;
+        display: block;
+        object-fit: fill
+      }
+      .register_tablet_view{
+        display: none;
+      }
+      @include media-breakpoint-up(xl) {
+       
+        height: 600px !important;
+        object-fit: fill;
+        width: 400px !important;
+        video{
+          height: 601px !important;
+          object-fit: fill
+        }
+        img{
+          height: 634px !important;
+          object-fit: fill
+        }
+        .register_mobile_view{
+          display: none !important;
+        }
+        .register_tablet_view{
+          display: none !important;
+        }
+        .register_desktop_view{
+          margin-top: -1;
+          width: 401px;
+          height: 601px;
+          object-fit: fill;
+          display: block !important;
+        }
+      
+   
+      }
+      @include media-breakpoint-up(md) {
+        height: 180px;
+        object-fit: fill;
+        .register_desktop_view{
+          display: none;
+        }
+        .register_mobile_view{
+          display: none;
+        }
+        .register_tablet_view{
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+        }
+        video{
+          height: 256px;
+          object-fit: fill
+
+        }
+      }
+     }
+  
+
+        .new-pass-img {
+          background-image: url("../../assets/images/modals/new-pass.jpg");
+        }
+        .you-got-mail-img {
+          background-image: url("../../assets/images/modals/you-got-mail.jpg");
+        }
+        .forgot-pass-img {
+          background-image: url("../../assets/images/modals/login-image.jpg");
+        }
+        .change-pass-img {
+          background-image: url("../../assets/images/modals/two-girls.jpg");
+        }
+        .congratulation-img {
+          background-image: url("../../assets/images/modals/congratulation-img.jpg");
+        }
+      }
+    }
+  }
+}
+
+
+.input-icon-wrap {
+  border: 2px solid #e3e3e3;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 95%;
+  margin-left: 2px;
+  &:focus-within {
+    .input-icon {
+      background: $brand-color-red;
+    }
+  }
+  .password-show {
+    position: absolute;
+    right: 3.594vw;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    @include media-breakpoint-up(xl) {
+      right: 0.903vw;
+    }
+    img {
+  
+      width: 4.063vw;
+      height: 3.594vw;
+      @include media-breakpoint-up(xl) {
+        width: 1.389vw;
+        height: 1.25vw;
+      }
+    }
+  }
+
+  .input-icon {
+    background: #ffa8ae;
+    padding: 0 !important;
+    margin: 0 !important;
+    img {
+      // filter: invert(1);
+    }
+  }
+
+  .input-with-icon {
+    border: none;
+    flex: 1;
+  }
+
+  .input-icon,
+  .input-with-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5vw;
+    width: 10.313vw;
+    height: 10.938vw;
+    @include media-breakpoint-up(xl) {
+      padding: 0.972vw 0.833vw;
+      width: 2.778vw;
+      height: 3.194vw;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+//////////////////////////////////////////
+// All modals
+//////////////////////////////////////////
+.fp-pb {
+  padding: 1.319vw 6.25vw 12.444vw 6.25vw !important;
+  @include media-breakpoint-up(xl) {
+    padding: 1.319vw 2.083vw 4.444vw 2.083vw !important;
+  }
+}
+
+.small-modal {
+  .modal-dialog {
+    width: 100%;
+    max-width: 86.406vw;
+    margin: 0 auto;
+    @include media-breakpoint-up(xl) {
+      max-width: 477px;
+    }
+    .modal-body {
+      header {
+        margin: 18px 15px;
+        height: 36px;
+        .login-logo-img {
+          max-width: 70px;
+          filter: invert(1);
+        }
+        display: flex;
+        justify-content: space-between;
+      }
+      .login-description {
+        margin: 0 auto;
+      }
+      .rocket-img {
+        max-width: 250px;
+        @include media-breakpoint-up(xl) {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+}
+
+.password-recovery-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .form-group{
+    margin-bottom:25px;
+  }
+  label{
+    font-size:20px;
+    color:#707070;
+    margin-bottom:0px;
+  }
+}
+
+//////////////////////////////////////////
+// Radio btns
+//////////////////////////////////////////
+.modal-body.flex-column.payment-modal{
+  .set_min_height{
+    min-height: unset !important;
+  }
+}
+
+// @media (min-width:409px) and (max-width:466px) {
+//   .radio_payment_form{
+//     input[type="radio"] + label{
+//       font-size: 12px !important;
+//       span{
+//         font-size: 10px !important;
+//       }
+//     }
+//   }
+// }
+// @media (max-width:409px) {
+//   .radio_payment_form{
+//     input[type="radio"] + label{
+//       font-size: 11px !important;
+//       span{
+//         font-size: 8px !important;
+//       }
+//     }
+//   }
+//   .input_date_padding{
+//     padding:2px !important;
+//   }
+// }
+// @media (max-width:467px){
+//   .radio_payment_form{
+//     ul.left_payment_price li {
+//       .payment_form_radio:checked + label,
+//       .payment_form_radio:not(:checked) + label
+//       {
+//         // display: inline !important;
+//       }
+//       // .payment_form_radio:checked + label:before,
+//       // .payment_form_radio:not(:checked) + label:before {
+//       //   top: 4px !important;
+//       //   width: 10.5px !important;
+//       //   height: 10.5px !important;
+//       // }
+//       // .payment_form_radio:checked + label:after,
+//       // .payment_form_radio:not(:checked) + label:after {
+//       //   top: 7px !important;
+//       //   width: 4.5px !important;
+//       //   height: 4.5px !important;
+//       // }
+//     }
+//   }
+// }
+@media (max-width:410px){
+  .radio_payment_form{
+    // ul li label{
+    //   width: 88px !important;
+    // }
+    // input[type="radio"] + label{
+    //   font-size: 12px !important;
+    //   span{
+    //     font-size: 10px !important;
+    //   }
+    // }
+  }
+}
+
+.radio_payment_form{
+  ul.left_payment_price {
+    list-style: none;
+    padding: 1px;
+    column-count: 2;
+    font-family: 'Gellix';
+    font-weight: bold;
+  }
+
+  ul.left_payment_price li {
+    // margin-bottom: 5px;
+    font-size: 14px;
+    .payment_form_radio:checked,
+    .payment_form_radio:not(:checked) {
+      position: absolute;
+      left: -9999px;
+    }
+
+    .payment_form_radio:checked + label,
+    .payment_form_radio:not(:checked) + label
+    {
+        position: relative;
+        padding-left: 5px;
+        padding-top: 20px;
+        cursor: pointer;
+        display: inline-block;
+    }
+    .payment_form_radio:checked + label:before,
+    .payment_form_radio:not(:checked) + label:before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: 9px;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #B2B2B2;
+        border-radius: 10% ;
+        background: #fff;
+    }
+    .payment_form_radio:checked + label:after,
+    .payment_form_radio:not(:checked) + label:after {
+      display: block;
+      background-image: none;
+      content: url("../../assets/images/icons/v.svg");
+      position: absolute;
+      top: 13px;
+      right: 3px;
+      transition: all 0.2s ease;
+    }
+    .payment_form_radio:not(:checked) + label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    .payment_form_radio:checked + label:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+  }
+
+  input[type="radio"] + label{
+    color: #180D1D;
+    font-size: 14px;
+    span{
+      color: #180D1D !important;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+}
+
+.radio-btns-container {
+  &:last-child {
+    margin-right: 0;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  .radio-btn {
+    width: 100%;
+    margin-right: 5px;
+    height: 61px;
+    position: relative;
+    font-size: 22px;
+    font-weight: 700;
+    background-color: #eaeaea;
+    border: solid 2px #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    @include media-breakpoint-up(sm) {
+      margin-right: 15px;
+    }
+    &:focus {
+      outline: 2px dotted #55d7dc;
+    }
+    &:hover {
+      color: $brand-color-red;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// (correct mark) Css for radio button on payment form //
+
+// input[type="radio"]:checked + label {
+//   box-shadow: 1px 2px 20px 0 rgba(77, 10, 14, 0.16);
+//   border: solid 2px $brand-color-red;
+//   color: $brand-color-red;
+//   background-color: #fff;
+// }
+
+// input[type="radio"]:checked + label span {
+//   display: inline-block;
+//   border-color: #b2b2b2;
+//   width: 15px;
+//   &::after {
+//     transform: scale(1.2);
+//   }
+// }
+
+// input[type="radio"] + label span {
+//   display: none;
+//   border: 0.1em solid;
+//   background-color: #fff;
+//   border-color: #b2b2b2;
+//   width: 0;
+//   height: 16px;
+//   position: relative;
+//   margin-left: 5px;
+//   vertical-align: bottom;
+//   color: transparent;
+//   transition: 0.4s;
+//   @include media-breakpoint-up(sm) {
+//     margin-left: 15px;
+//   }
+//   &::after {
+//     transition: 0.4s;
+//     position: absolute;
+//     top: -0.85rem;
+//     transform: scale(0);
+//     content: url("../../assets/images/icons/v.svg");
+//   }
+// }
+.choose-new-password.form-title h2{
+  margin-bottom: 35px;
+}
+.choose-new-password.form-title{
+  margin-bottom: 40px;
+}
+.text-justify{
+  text-align: justify !important;
+}
+
+.password-recovery-form ::placeholder {
+  color: #B9B9B9 !important;
+  font-weight:400;
+}
+
+.password-recovery-form  :-ms-input-placeholder {
+  color: #B9B9B9 !important;
+  font-weight:400;
+}
+
+.password-recovery-form  ::-ms-input-placeholder {
+  color: #B9B9B9 !important;
+  font-weight:400;
+}
+
+.base-modal .modal-dialog .modal-content .modal-body .page  .thank-you-popup .form-title .login-description.mail-description{ font-size: 18px; font-family: "Gellix";}
+.base-modal .modal-dialog .modal-content .modal-body .page  .thank-you-popup .form-title h2{  font-family: "Gellix";}
+// [aria-labelledby="change-password-modal"], [aria-labelledby="payment-success-modal"]{ background-color: #2E2E2E;}
+[aria-labelledby="change-password-modal"] .modal-body .form-title h2{ font-family: "Gellix"; font-size:41px; margin-bottom: 0px !important;}
+[aria-labelledby="change-password-modal"].base-modal .modal-dialog, .small-modal .modal-dialog {
+  max-width: 69vw;
+}
+
+[aria-labelledby*="payment-modal"], [aria-labelledby*="payment-modal"] .login-description{ font-family: "Gellix" !important;}
+[aria-labelledby*="reset-password-modal"].base-modal .modal-dialog{ max-width: 900px;}
+  [aria-labelledby*="reset-password-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-title .login-description{ font-size: 16px;}
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog{ max-width:870px}
+  [aria-labelledby*="forgot-password-modal"].base-modal .modal-dialog{ max-width:900px}
+
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog h2{ margin-bottom: 27px;}
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-title .login-description{ font-size: 16px;  font-family: "Gellix";}
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog .modal-content .modal-body .page{ min-height: 65vh;}
+  .btn-register{ width: 275px;}
+  [aria-labelledby*="login-modal"].base-modal .modal-dialog{ max-width:870px}
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-container .forgot-pass{ font-size: 13px;}
+  [aria-labelledby*="payment-success-modal"].base-modal .modal-dialog{ max-width:870px}
+  [aria-labelledby*="paymentFailed-modal"].base-modal .modal-dialog{ max-width: 500px;}
+  .payment-failed-popup .text-oops{ font-size: 18px; margin: 18px 0px; font-family: 'Gellix', sans-serif; font-weight: 700; color: #180D1D;}
+  .payment-failed-popup h2.section-title{ font-size: 45px; line-height: 50.85px; font-family: 'Gellix', sans-serif; font-weight: 900; margin-bottom: 25px;}
+  .payment-failed-popup .btn-try-again{ width: 223px;}
+  .payment-failed-popup .payment-close{ color: #232323;}
+  /**********************************/
+@media (max-width:1179px) {
+  .base-modal .modal-dialog .modal-content .modal-body .congratulation-img{  background: url(../../assets/images/mobile-congratulation-img.jpg) no-repeat center center; background-size:cover;}
+  [aria-labelledby*="reset-password-modal"].base-modal .modal-dialog .modal-content .modal-body .login-img{  background: url(../../assets/images/mobile-reset-password.png) no-repeat center center; background-size:cover; height: 35vw;}
+  [aria-labelledby*=register-modal].base-modal .modal-dialog {max-width: 553px;}
+  .base-modal .modal-dialog .modal-content .modal-body.got-mail-popup .page{ min-height: auto; padding-top: 50px !important; padding-bottom: 6.444vw !important;}
+  [aria-labelledby*="forgot-password-email-sent-modal"].base-modal .modal-dialog{max-width: 50vw;}
+  .base-modal .modal-dialog .modal-content .modal-body.got-mail-popup .page .form-title{ padding-top: 0px;}
+  .payment-failed-popup h2.section-title{ font-size: 48px; line-height: 54.24px;}
+}
+@media (max-width:767px) {
+  [aria-labelledby=change-password-modal].base-modal .modal-dialog{  max-width: 74vw;}
+  [aria-labelledby*=forgot-password-email-sent-modal].base-modal .modal-dialog { max-width: 65vw;}
+  .base-modal .modal-dialog .modal-content .modal-body.got-mail-popup .page .form-title .got-mail-description{font-size: 34px; max-width: 420px; line-height: 45px;}
+  .choose-new-password.form-title h2{ font-size: 55px;}
+  .got-mail-popup .form-title h2{ font-size: 54px;}
+  [aria-labelledby*=reset-password-modal].base-modal .modal-dialog .modal-content .modal-body .page .form-title .login-description{ font-size: 34px; line-height: 45px;}
+  [aria-labelledby*=reset-password-modal].base-modal .modal-dialog { max-width: 74.417vw;}
+.choose-new-password.form-title{ margin-top: 40px;}
+[aria-labelledby*="register-modal"].base-modal .modal-dialog h2{ font-size: 65px;}
+[aria-labelledby*="register-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-title .login-description{ font-size: 28px;}
+[aria-labelledby*="register-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-container .forgot-pass{ font-size: 20px;}
+.payment-failed-popup .text-oops{ font-size: 34px; line-height: 40px;}
+.payment-failed-popup h2.section-title{ font-size: 60px; line-height:67.8px;}
+[aria-labelledby*=paymentFailed-modal].base-modal .modal-dialog {max-width: 550px;}
+}
+@media (max-width:450px) {
+  [aria-labelledby=change-password-modal].base-modal .modal-dialog{  max-width: 90vw;}
+  [aria-labelledby=change-password-modal] .form-title.mt-70{ margin-top:30px !important}
+  [aria-labelledby=change-password-modal] .modal-body .form-title h2 { font-size: 27px;}
+  [aria-labelledby=change-password-modal].base-modal .modal-dialog .modal-content .modal-body .page{ padding-left:15px !important; padding-right:15px !important;}
+  .base-modal .modal-dialog .modal-content .modal-body.got-mail-popup .page .form-title .got-mail-description{ font-size: 20px; max-width: 255px; line-height: 20px;}
+  .got-mail-popup .form-title h2{ font-size: 42px; line-height: 40px;}
+  .choose-new-password.form-title h2 { font-size: 30px;}
+  [aria-labelledby*=reset-password-modal].base-modal .modal-dialog .modal-content .modal-body .page .form-title .login-description{ font-size: 20px; line-height: 26px;}
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog h2{ font-size: 42px;}
+[aria-labelledby*="register-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-title .login-description{ font-size: 23px; margin-bottom: 45px;}
+.payment-failed-popup h2.section-title{ font-size: 37px; line-height:41.81px;}
+  }
+
+
+label.custom-control-label.custom_signup_checkbox_text {
+  font-size: 12px;
+  font-family: 'Gellix';
+}
+
+@media (max-width:640px) {
+  label.custom-control-label.custom_signup_checkbox_text {
+    font-size: 12px;
+  }
+}
+
+[aria-labelledby="raffle-count-down"].base-modal .modal-dialog {
+  width: 100%;
+  margin: 0 auto;
+  max-width: max-content;
+}
+
+[aria-labelledby="winner-modal"].base-modal .modal-dialog {
+  width: 100%;
+  margin: 0 auto;
+  max-width: max-content;
+}
+
+@media (min-width:438px) and (max-width:1180px) {
+  [aria-labelledby="otp-varify-modal"].base-modal .modal-dialog {
+    .otpinputboxstyle{
+      margin: 20px !important;
+    }
+  }
+}
+
+@media (max-width:437px){
+  [aria-labelledby="otp-varify-modal"].base-modal .modal-dialog {
+    .otpinputboxstyle{
+      margin: 10px !important;
+    }
+    h2{
+      font-size: 42px !important;
+    }
+    .login-description{
+      font-size: 14px !important;
+    }
+  }
+  [aria-labelledby="otp-awesome-modal"].base-modal .modal-dialog {
+    h2{
+      font-size: 42px !important;
+    }
+  }
+}
+
+@media (max-width:1180px) {
+  [aria-labelledby="otp-varify-modal"].base-modal .modal-dialog {
+    width: 100%;
+    margin: 0 auto;
+    max-width: max-content !important;
+    .page{
+      padding: 20px !important;
+    }
+  }
+
+  [aria-labelledby="otp-awesome-modal"].base-modal .modal-dialog {
+    width: 100%;
+    margin: 0 auto;
+    max-width: max-content !important;
+    h2{
+      margin-bottom: 48px !important;
+    }
+  }
+  [aria-labelledby="register-modal"].base-modal .modal-dialog {
+    width: 100%;
+    margin: 0 auto;
+    max-width: max-content !important;
+  }
+
+  [aria-labelledby="payment-modal"].base-modal .modal-dialog {
+    width: 100%;
+    margin: 0 auto;
+    max-width: max-content !important;
+  }
+  [aria-labelledby="login-modal"].base-modal .modal-dialog {
+    width: 100%;
+    margin: 0 auto;
+    max-width: max-content !important;
+  }
+  [aria-labelledby="forgot-password-modal"].base-modal .modal-dialog {
+    width: 100%;
+    margin: 0 auto;
+    max-width: max-content !important;
+  }  
+  [aria-labelledby="reset-password-modal"].base-modal .modal-dialog{
+    width: 100%;
+    margin: 0 auto;
+    max-width: max-content !important;
+  }
+  [aria-labelledby="payment-success-modal"].base-modal .modal-dialog{
+    width: 100%;
+    margin: 0 auto;
+    max-width: max-content !important;
+    .login-logo-img{
+      margin-top: 40px !important;
+    }
+    .modal-body{
+      display: block;
+    }
+  }
+}
+
+[aria-labelledby="register-modal"].base-modal .modal-dialog {
+  max-width: 870px; 
+  .modal-content{
+    border: 0.5px solid transparent !important;
+    border-left: 0px solid transparent !important;
+    border-top: 0px solid transparent !important;
+    overflow: hidden;
+  }
+    @include media-breakpoint-up(md) {
+
+  }
+  @include media-breakpoint-up(xl) {
+
+  }
+}
+
+[aria-labelledby="payment-modal"].base-modal .modal-dialog {
+  max-width: 870px;
+  .payment-title{
+    display: none;
+  }
+  .left_payment_price{
+    // column-gap: 33px !important;
+  }
+  .left_payment_price li:last-child {
+    margin-right: unset;
+  }
+  .left_payment_price li {
+    margin-right: 20px;
+  }
+  @include media-breakpoint-up(md) {
+    .left_payment_price{
+      // column-gap: 67px;
+    }
+    .left_payment_price li {
+      margin-right: 20px;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .left_payment_price{
+      // column-gap: 67px !important;
+    }
+    .left_payment_price li {
+      margin-right: 67px;
+    }
+  }
+}
+
+[aria-labelledby="otp-varify-modal"].base-modal .modal-dialog {
+  max-width: 870px;
+  .modal-content{
+    border: 0.5px solid transparent !important;
+    border-top: 0px solid transparent !important;
+  }
+  .close{
+    color: #180D1D;
+  }
+  .login-description{
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 19px !important;
+    color: #180D1D !important;
+    margin-bottom: 28px !important;
+  }
+  .otpinputboxstyle{
+    width: 59px;
+    height: 61px;
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 7px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 50px;
+    text-align: center;
+    color: #000000;
+  }
+  .btn-varify{
+    margin-bottom: 15px !important;
+    margin-top: 18% !important;
+  }
+  .page{
+    min-height: 500px !important;
+  }
+  .resend-btn{
+    text-align: center;
+    font-size: 16px;
+    span{
+      font-weight: 700;
+      line-height: 16px;
+      color: #AAAAAA;
+    }
+    a{
+      color: #FF3C4C;
+      text-decoration-line: underline;
+    }
+  }
+  .forgot-pass-img {
+    background-image: url("../../assets/images/modals/forget_mobile.png") !important;
+    height: 159.82px !important;
+    padding: 20px !important;
+  }
+  @include media-breakpoint-up(md) {
+    .otpinputboxstyle{
+      font-size: 36px;
+    }
+    .resend-btn{
+      font-size: 13px;
+    }
+    .forgot-pass-img {
+      background-image: url("../../assets/images/modals/forget_tablet.png") !important;
+      height: 173.5px !important;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .otpinputboxstyle{
+      font-size: 42px;
+    }
+    .resend-btn{
+      font-size: 13px;
+    }
+    .forgot-pass-img {
+      background-image: url("../../assets/images/modals/forget_password.png") !important;
+      height: auto !important;
+      padding: 1.319vw 2.083vw 4.444vw 2.083vw !important;
+    }
+  }
+}
+
+[aria-labelledby="otp-awesome-modal"].base-modal .modal-dialog {
+  max-width: 870px;
+  .modal-content{
+    border: 0.5px solid transparent !important;
+    border-top: 0px solid transparent !important;
+  }
+  .close{
+    color: #180D1D;
+  }
+  .login-description{
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 19px !important;
+    color: #180D1D !important;
+    margin-top: 13px !important;
+  }
+  .page{
+    min-height: 500px !important;
+  }
+  .btn-varify{
+    margin-bottom: 15% !important;
+    margin-top: 30% !important;
+  }
+  .forgot-pass-img {
+    background-image: url("../../assets/images/modals/forget_mobile.png") !important;
+    height: 159.82px !important;
+    padding: 20px !important;
+  }
+  @include media-breakpoint-up(md) {
+    .forgot-pass-img {
+    background-image: url("../../assets/images/modals/forget_tablet.png") !important;
+      height: 173.5px !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .forgot-pass-img {
+      background-image: url("../../assets/images/modals/forget_password.png") !important;
+      height: auto !important;
+      padding: 1.319vw 2.083vw 4.444vw 2.083vw !important;
+    }
+  }
+}
+
+[aria-labelledby="forgot-password-modal"].base-modal .modal-dialog .modal-content{
+  max-width: 870px;
+  border: 1px solid transparent !important;
+  border-right: 0px solid transparent !important;
+  border-bottom: 0px solid transparent !important;
+  border-top: 0px solid transparent !important;
+  .page{
+    min-height: 450px !important;
+  }
+  .forgot-pass-img {
+    background-image: url("../../assets/images/modals/forget_mobile.png") !important;
+  }
+  @include media-breakpoint-up(md) {
+    .forgot-pass-img {
+    background-image: url("../../assets/images/modals/forget_tablet.png") !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .section-title{
+      margin-bottom:20px;
+    }
+    .forgot-pass-img {
+      background-image: url("../../assets/images/modals/forget_password.png") !important;
+    }
+  }
+}
+
+[aria-labelledby="reset-password-modal"].base-modal .modal-dialog .modal-content{
+  max-width: 870px;
+  border: 2px solid transparent !important;
+  .page{
+    min-height: 552px !important;
+  }
+  .login-img {
+    background-image: url("../../assets/images/modals/forget_mobile.png") !important;
+  }
+  @include media-breakpoint-up(md) {
+    .login-img {
+    background-image: url("../../assets/images/modals/forget_tablet.png") !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .login-img {
+      background-image: url("../../assets/images/modals/forget_password.png") !important;
+    }
+  }
+}
+[aria-labelledby="forgot-password-email-sent-modal"].base-modal .modal-dialog .modal-content{
+  max-width: 870px;
+  border: 0.5px solid transparent !important;
+  border-top: 0px solid transparent !important;
+  border-left: 0px solid transparent !important;
+  .page{
+    min-height: 400px !important;
+  }
+  .you-got-mail-img {
+    background-image: url("../../assets/images/modals/forget_mobile.png") !important;
+  }
+  @include media-breakpoint-up(md) {
+    .you-got-mail-img {
+    background-image: url("../../assets/images/modals/forget_tablet.png") !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .you-got-mail-img {
+      background-image: url("../../assets/images/modals/forget_password.png") !important;
+    }
+    .page{
+      min-height: 600px !important;
+    }
+  }
+}
+
+[aria-labelledby="login-modal"].base-modal .modal-dialog .modal-content{
+  max-width: 870px;
+  border: 1px solid transparent !important;
+  border-right: 4px solid transparent !important;
+  border-top: 0.5px solid transparent !important;
+  .close{
+    color: #180D1D;
+  }
+  .page{
+    min-height: 500px !important;
+  }
+  .login-img {
+    background-image: url("../../assets/images/modals/forget_mobile.png") !important;
+  }
+  @include media-breakpoint-up(md) {
+    .login-img {
+    background-image: url("../../assets/images/modals/forget_tablet.png") !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .login-img {
+      background-image: url("../../assets/images/modals/forget_password.png") !important;
+    }
+    .page{
+      min-height: 598px !important;
+    }
+  }
+}
+
+[aria-labelledby="change-password-modal"].base-modal .modal-dialog .modal-content{
+  max-width: 870px;
+  border: 0.5px solid transparent !important;
+  border-top: 0px solid transparent !important;
+  .close{
+    color: #180D1D;
+  }
+  .page{
+    min-height: 475px !important;
+  }
+  .change-pass-img {
+    background-image: url("../../assets/images/modals/forget_mobile.png") !important;
+  }
+  @include media-breakpoint-up(md) {
+    .change-pass-img {
+    background-image: url("../../assets/images/modals/forget_tablet.png") !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .change-pass-img {
+      background-image: url("../../assets/images/modals/forget_password.png") !important;
+    }
+    .page{
+      // min-height: 598px !important;
+    }
+  }
+}
+
+[aria-labelledby="payment-success-modal"].base-modal .modal-dialog .modal-content{
+  border: 0.5px solid transparent !important;
+  border-bottom: 0px solid transparent !important;
+  .form-title h2{
+    font-size: 34px;
+  }
+  .modal-content{
+    border: 0px solid rgba(0, 0, 0, 0.2) !important;
+  }
+  .close{
+    color: #180D1D;
+    z-index: 999;
+  }
+  .login-description{
+    font-weight: 700 !important;
+    font-size: 22px !important;
+    line-height: 19px !important;
+    color: #180D1D !important;
+  }
+  .page{
+    min-height: 500px !important;
+  }
+  .forgot-pass-img {
+    background-image: url("../../assets/images/modals/forget_mobile.png") !important;
+  }
+  @include media-breakpoint-up(md) {
+    max-width: 550px;
+    .form-title h2{
+      font-size: 42px !important;
+    }
+    .forgot-pass-img {
+    background-image: url("../../assets/images/modals/forget_tablet.png") !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    max-width: 870px;
+    .forgot-pass-img {
+      background-image: url("../../assets/images/modals/forget_password.png") !important;
+    }
+    .form-title h2{
+      font-size: 42px !important;
+    }
+    .page{
+       min-height: 600px !important;
+    }
+  }
+}
+.cookie_modal_body{
+  .contentStyle{
+    .btn-rounded{
+      padding: 0px 26px;
+      height: 48px;
+      font-size: 15px;
+    }
+  }
+}
+.cookie_modal_body{
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  background-color: #FFFFFF;
+  z-index: 999;
+  width: 100%;
+  border: 3px solid #FF3C4C;
+  .close-icon{
+    border: none;
+    outline: none;
+    background: none;
+    width: 33px;
+    right: 22px;
+    position: absolute;
+    top: 22px;
+    appearance: none;
+    color: #000000;
+    font-size: 30px!important;
+  }
+  .accept_continue{
+    button{
+      // height: 36.76171875px;
+      // width: auto;
+      border-radius: 5px;
+      border: none;
+      color: #FFFFFF;
+      background-image: url('../../assets/images/button-03.png') !important;
+      background-size: cover !important;
+      border: none;
+      background: no-repeat;
+      background-position: center;
+      font-size: 14px;
+      line-height: 23px;
+      padding: 16px;
+      width: 130px;
+    }
+  }
+  .mobileView{
+    display: none;
+  }
+
+.cookie_modal_body  {
+  .desktop_view{
+    display: none;
+  }
+  .tablet_view{
+    display: block;
+  }
+  .mobile_view{
+    display: none;
+  }
+}
+
+  @include media-breakpoint-up(md) {
+    min-height: 216px;
+    //top: 435px;
+    //top: 305px;
+    .close-icon{
+      right: 0px !important;
+      top: -10px !important;
+    }
+    .contentStyle{
+      padding-left: 24px !important;
+      padding-right: 44px !important;
+      padding-top: 30px !important;
+    }
+    .tabletView{
+      display: block !important;
+    }
+    .desktopview{
+      display: none !important;
+    }
+    .accept_continue{
+      margin-top: 0px !important;
+    }
+    button{
+      padding: 0 26px;
+      height: 48px;
+      font-size: 15px;
+    } 
+  }
+  @include media-breakpoint-up(xl) {
+    min-height: 190px;
+    bottom: 0px;
+    //top: 432px;
+    .desktopview{
+      display:block !important;
+    }
+    .tabletView{
+      display: none !important;
+    }
+    .contentStyle{
+      padding-left: 15px !important;
+      padding-right: 81px !important;
+      padding-top: 30px !important;
+      padding-bottom: 20px !important
+    
+    }
+    button{
+      padding: 0px 26px;
+    height: 48px;
+    font-size: 15px;
+    }
+
+  }
+}
+@media(max-width:827px) and (min-width:704px){
+  .cookie_modal_body{
+    min-height: 233px;
+    display: block;
+    button{
+      padding: 0 26px;
+      height: 48px;
+      font-size: 15px !important;
+    }
+  }
+  .cookie_modal_body .contentStyle{
+    padding-top: 20px !important;
+    padding-left: 20px;
+  }
+  .close-icon{
+    right: 0px !important;
+    top: -10px !important;
+  }
+  .desktopview{
+    display:none !important;
+  }
+  .tabletView{
+    display: block !important;
+  }
+  .mobile_view{
+    display: none;
+  }
+
+} 
+
+@media(max-width:600px){
+  .cookie_modal_body{
+    bottom: 30px;
+    border-radius: 30px;
+    min-height: 215px;
+
+    .contentStyle{
+      padding-left: 8px;
+      padding-right: 25px;
+      padding-top: 30px;
+      font-size: 12px !important;
+    }
+    .mobileView{
+      display: block !important;
+    }
+    .desktopview{
+      display: none !important;
+    }
+    .tabletView{
+      display: none !important;
+    }
+    .container {
+      display: block !important;
+      position: relative;
+      bottom: -163px;
+      left: 22px;
+    }
+    .triangle {
+      display: block !important;
+      margin-top:20px;
+      position: absolute;
+      margin: auto;
+      top: -105px;
+      width: 33px;
+      height: 33px;
+      z-index: -1 !important;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      border-right: 3px solid #FF3C4C;
+      border-bottom: 3px solid #FF3C4C;
+      background-color: #FFFFFF;
+    }
+    .accept_continue{
+      margin-top: 20px !important;
+    }
+    .close-icon{
+      right: 0px;
+      top: -13px;
+      font-size: 45px;
+    }
+  }
+}
+
+
+[aria-labelledby*="login-modal"].base-modal .modal-dialog{
+  max-width: 870px;
+}
+
+@media (max-width: 500px){
+  [aria-labelledby*="change-password-modal"].base-modal .modal-dialog .modal-content .change-pass-img{
+    height: 135px;
+    [aria-labelledby=change-password-modal].base-modal .modal-dialog .modal-content {
+    border-top: 3px solid transparent !important;
+    }
+  }
+
+  [aria-labelledby*="forgot-password-modal"].base-modal .modal-dialog{ 
+    .forgot-pass-img{
+      height: 164px !important;
+    }
+  }
+
+  [aria-labelledby*="payment-success-modal"].base-modal .modal-dialog{ 
+    .forgot-pass-img{
+      height: 164px !important;
+    }
+  }
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog{ 
+    // .register-img{
+    //   height: 159.82px !important;
+    //   padding: 20px !important;
+    // }
+    max-width: 350px;
+    .forgot-pass{
+      margin-top: 20px !important;
+    }
+       
+  }
+
+  
+
+  [aria-labelledby*="login-modal"].base-modal .modal-dialog .modal-content .modal-body .page{ min-height: 475px !important;
+    .input-icon-wrap .password-show img {
+      width: 4.063vw;
+      height: 3.594vw;
+      float: right;
+     // margin-top: 29px;
+    }
+  }
+
+  [aria-labelledby*="login-modal"].base-modal .modal-dialog{
+    .login-description{
+      font-size: 18px !important;
+    }
+    h2{
+      font-size: 28px;
+      line-height: 34px;
+      color: #180D1D;
+    }
+    form{
+      width: 319px !important;
+      .input-icon-wrap{
+        .input-icon{
+          width: 10.313vw;
+          height: 10.938vw;
+        }
+        input{
+          width: 10.313vw;
+          height: 10.938vw;
+        }
+      }
+    }
+   .modal-content{
+     width: 330.29px;
+     border-top: 0.5px solid transparent!important;
+     border-left: 0px solid transparent !important;
+   }
+  }
+  .base-modal .modal-dialog .modal-content .login-modal {
+    .login-img {
+      background-image: url("../../assets/images/modals/mobile_pop_img.png");
+      height: 164px;
+      img{
+        width: 170px;
+        height: 43px;
+      }
+    }
+    .close {
+      width: 36.59px;
+      height: 36px;
+    }
+    .close span{
+      font-size: 41px;
+      margin-top: -7px;
+    }
+    .custom-control-label {
+      font-weight: 700;
+      font-size: 20px;
+      color: #180D1D;
+    }
+    .page .form-container input[type=checkbox] + label:before {
+      width: 28px;
+      height: 28px;
+      top: 8px;
+    }
+    .btn-rounded {
+     // width: 217px;
+      margin-top: 2px !important;
+    }
+    .page .form-container .forgot-pass {
+      color: #B4B4B4 !important;
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+    .social-login{
+      //display: block;
+    }
+    .page .form-title{
+      padding: 0px;
+      h2{
+        padding: 0px;
+        margin: 2px 0px 0px 0px;
+      }
+      p{
+        margin: 8px 0px 13px 0px;
+      }
+    }
+    .page{
+      .mb-4, .my-4 {
+        margin-bottom: 16px;
+      }
+    }
+    .page .sign-up-link{
+      font-size: 23px !important;
+      line-height: 12.93px !important;
+      font-weight: 700;
+      font-family: 'Roboto';
+      font-style: normal !important;
+      color: #180D1D !important;
+      margin-bottom: 15px !important;
+      margin-top: 0px;
+      position: unset;
+      width: 100%;
+      text-align: center;
+    }
+    .page .form-container .custom-control-label::after {
+      left: -1rem;
+      top: -5px !important;
+      transform: scale(1.7);
+    }
+    .login-description{
+      display: none;
+    }
+  }
+  .base-modal .modal-dialog .modal-content .signup-modal {
+    .page .form-container input[type=checkbox] + label:before {
+      width: 25px;
+      height: 25px;
+      top: 1px;
+    }
+    .page .form-container .custom-control-label::after{
+      top: 0rem;
+      left: -1.2rem;
+      transform: scale(1.1);
+    }
+    .close {
+      width: 36.59px;
+      height: 36px;
+    }
+    .close span {
+      font-size: 41px;
+      margin-top: -7px
+    }
+  }
+  
+  [aria-labelledby="payment-modal"].base-modal .modal-dialog .modal-content .modal-body.payment-modal .close{
+    z-index: 999 !important;
+  }
+
+  [aria-labelledby="payment-modal"].base-modal .modal-dialog {
+    .modal-content{
+      width: 332px !important;
+    }
+    ul{
+      // column-gap: 4px !important;
+    }
+    .left_payment_price li {
+      margin-right: 4px !important;
+    }
+    .login-form{
+      padding: 0 10px !important;
+    }
+    .form-group{
+      margin-bottom: 8px !important;
+    }
+    .payment-modal header{
+      padding: 0px 15px 12px !important;
+    }
+  }
+}
+ .payment-modal{
+    .radio_payment_form{
+      .left_payment_price{
+        // column-gap: 67px;
+        display: flex;
+        justify-content: center;
+        margin: 15px;
+        label{
+          color: #FF3C4C;
+        }
+      }
+      ul li label{
+        width: 100px;
+        height: 75px;
+        background: #FFFFFF;
+        border: 2px solid #FF3C4C;
+      }
+      ul li label span{
+        display: block;
+      }
+    }
+ .payment-form .form-group label {
+  opacity: 1;
+  font-weight: 700;
+  }
+}
+
+label.hideCheckbox::before {
+  display: none !important;
+}
+label.hideCheckbox::after{
+  display: none !important;
+}
+label.hideCheckbox{
+  text-align: center;
+  background: #EAEAEA !important;
+  border: none !important;
+  color: #180D1D !important;
+}
+
+[aria-labelledby="congratulations-modal"].base-modal .modal-dialog .modal-body .close {
+  background-image: url('../../assets/images/Exit_button_Alpha.png');
+  background-size: cover;
+  background-color: unset !important;
+  opacity: 1;
+}
+
+[aria-labelledby="winner-modal"].base-modal .modal-dialog .modal-body .close {
+  background-image: url('../../assets/images/Exit_button_Alpha.png');
+  background-size: cover;
+  background-color: unset !important;
+  opacity: 1;
+}
+
+[aria-labelledby="congratulations-modal"].base-modal .modal-dialog .modal-content{
+  border: 0px;
+}
+
+
+// cookie modal mobile view 
+@media (min-width:601px) and (max-width:704px){
+  .cookie_modal_body{
+    min-height: 216px;
+
+   bottom: 0px;
+    padding-bottom: 20px;
+    .close-icon{
+      right: -5px !important;
+      top: -10px !important;
+    }
+    .contentStyle{
+      padding-left: 20px !important;
+      padding-right: 44px !important;
+      padding-top: 20px !important;
+    }
+    .desktopview{
+      display: none !important;
+    }
+  
+  }
+}
+
+@media (min-width:427px) and (max-width:488px){
+  .cookie_modal_body {
+    min-height: 232px;
+  }
+  .cookie_modal_body .triangle{
+    top: -106px;
+  }
+    .contentStyle{
+       padding-top: 30px !important;
+    }
+  }
+
+  @media (min-width:375px) and (max-width:900px){
+    .cookie_modal_body .contentStyle .accept_and_continue_section{
+      text-align: left !important;
+    }
+  }
+  
+
+
+  @media (min-width:375px) and (max-width:415px){
+    .cookie_modal_body{
+       min-height: 235px;;
+    }
+    .cookie_modal_body .triangle{
+      top: -111px !important; 
+    }
+      .contentStyle{
+         padding-top: 20px !important;
+      }
+    }
+
+    @media (min-width:415px) and (max-width:426px){
+      .cookie_modal_body{
+        min-height: 232px !important;
+      }
+      .cookie_modal_body .triangle{
+        top: -114px !important; 
+      }
+        .contentStyle{
+           padding-top: 20px !important;
+        }
+      }
+
+      .congratulation_video{
+       
+        .desktop_view{
+          display: none;
+        }
+        .mobile_view{
+          width: 100%;
+          display: block;
+        }
+        .tablet_view{
+          display: none;
+        }
+        @include media-breakpoint-up(xl) {
+          width: 100%;
+          height: 700px;
+          object-fit: fill;
+          
+          video{
+            width: 100%;
+            height: 700px;
+            object-fit: fill;
+  
+          }
+          .mobile_view{
+            display: none !important;
+          }
+          .tablet_view{
+            display: none !important;
+          }
+          .desktop_view{
+            width: 100%;
+            display: block !important;
+          }
+        
+     
+        }
+        @include media-breakpoint-up(md) {
+          .desktop_view{
+            display: none;
+          }
+          .mobile_view{
+            display: none;
+          }
+          .tablet_view{
+            width: 100%;
+            display: block;
+          }
+        }
+
+      }
+
+      // .term-condition-section{
+      //   span{
+      //     a{
+      //       color: #180D1D !important;
+      //     }
+      //   }
+        
+      // }
+      @media (max-width:767px){
+        .term-condition-section{
+          span{
+            a{
+              font-size: 12px;
+            }
+          }
+       }
+    }  
+
+    // hide arrows from input type number
+    input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+@media(max-width:767px){
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog{ 
+    max-width: 450px !important
+ }
+}
+@media(max-width:500px){
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog{ 
+    width: 330.29px !important
+ }
+
+ .selectedPackage{ font-size: 11px !important;}
+ .notSelectedPackage{ font-size: 9px !important;}
+ .btn-rounded1 {font-size: 9px !important; height: 25px !important;}
+ .paymentLinkFontSize{font-size: 14px !important;}
+}
+@media(max-width:500px)
+{
+  [aria-labelledby=forgot-password-modal].base-modal .modal-dialog .modal-content{
+    width: 330.29px !important
+  }
+}
+@media(max-width:500px){
+[aria-labelledby=otp-varify-modal].base-modal .modal-dialog .modal-content {
+  width: 330.29px !important
+
+}
+}
+@media(max-width:500px){
+  [aria-labelledby=otp-varify-modal].base-modal .modal-dialog .otpinputboxstyle{
+    width: 50px;
+    height: 54px;
+    for-popup-resize{
+      margin-right:10px;
+    }
+  }
+}
+@media(max-width:500px){
+  [aria-labelledby*=reset-password-modal].base-modal .modal-dialog .modal-content{
+    width: 330.29px !important
+  }
+}
+
+@media(min-width:450px) and (max-width:500px){
+  .choose-new-password.form-title h2{
+    font-size: 29px;
+  }
+}
+@media(min-width:450px) and (max-width:500px){
+  .modal-resize-font{
+    font-size: 20px !important;
+  }
+ }
+ @media(max-width:500px){
+  [aria-labelledby=payment-success-modal].base-modal .modal-dialog .modal-content{
+    width: 330.29px !important
+  }
+}
+ 
+@media(min-width:767px) and (max-width:1180px)
+{
+  [aria-labelledby=register-modal].base-modal .modal-dialog .modal-content{
+    max-width: 541px;
+  }
+
+  [aria-labelledby=reset-password-modal].base-modal .modal-dialog .modal-content{
+    max-width: 700px;
+  }
+}
+
+@media(max-width:500px){
+  [aria-labelledby=register-modal].base-modal .modal-dialog .modal-content .page{
+    padding: 0.0vw 2.083vw 1.319vw 4.0vw !important;
+  }
+
+  [aria-labelledby*="register-modal"].base-modal .modal-dialog h2{ font-size: 33px !important; }
+
+  [aria-labelledby*=login-modal].base-modal .modal-dialog .modal-content .login-modal .login-img  h2{font-size: 37px !important;}
+}
+  @media(max-width:1179px)
+  {
+    .password-recovery-form .form-group{
+      margin-bottom: 18px !important;
+      }
+      [aria-labelledby=change-password-modal].base-modal .modal-dialog .modal-content .change-pass-img h2{
+      font-family: "Gellix" !important;
+      color: #fff !important;;
+      margin-bottom: 0px;
+      font-weight: 700;
+      font-size: 22px;
+      }
+      
+      [aria-labelledby=change-password-modal] .modal-body .form-title h2{
+      display: none;
+      }
+      
+      [aria-labelledby*=forgot-password-modal].base-modal .modal-dialog .forgot-pass-img h2{
+      font-family: "Gellix" !important;
+      display: block !important;
+      color: #fff !important;;
+      margin-bottom: 0px;
+      font-weight: 700;
+      font-size: 22px;
+      }
+      
+      [aria-labelledby=forgot-password-modal].base-modal .modal-dialog .modal-content .modal-body .page .form-container .form-title h2{
+      display: none;
+      }
+
+    [aria-labelledby=register-modal].base-modal .modal-dialog .modal-content .signup-modal .page .form-title h2{
+      display:none !important;
+    }
+
+    [aria-labelledby*=register-modal].base-modal .modal-dialog .modal-content .modal-body .page .form-title .login-description{
+      font-size: 3.688vw;
+    } 
+
+    [aria-labelledby*=register-modal].base-modal .modal-dialog .modal-content .modal-body .page .form-container .social-login{
+     margin-bottom: 10px !important;
+    } 
+
+    [aria-labelledby*=register-modal].base-modal .modal-dialog .modal-content .modal-body .page .form-container .register-form .form-group{
+      margin-bottom: 0.5rem !important;
+    }
+
+    [aria-labelledby*=login-modal].base-modal .modal-dialog .modal-content .login-modal .page .form-title h2{
+      display: none !important;
+    }
+
+  [aria-labelledby*=login-modal].base-modal .modal-dialog .modal-content .login-modal .login-img  h2{
+    font-family: "Gellix" !important;
+    display: block !important;
+    color: #fff;
+    font-weight: 700;
+    font-size: 60px;
+  }
+
+  [aria-labelledby=payment-success-modal].base-modal .modal-dialog .modal-content .modal-body .page .form-container img{
+    margin-bottom: 10px;
+  }
+
+  [aria-labelledby=payment-success-modal].base-modal .modal-dialog .modal-content .page {
+    min-height: 475px !important;
+  }
+
+  [aria-labelledby*=congratulations-modal].base-modal .modal-dialog .modal-content .modal-body .page{
+    padding-bottom: 0px;
+  }
+}
+
+ @media(min-width:1180px)
+{
+  [aria-labelledby=register-modal].base-modal .modal-dialog .modal-content .signup-modal .page .form-title h2{
+    display:block !important;
+  }
+  .register-video{
+    div{
+     h2{
+       display:none !important;
+       }
+    }
+  }
+  [aria-labelledby*=login-modal].base-modal .modal-dialog .modal-content .login-modal .page .form-title h2{
+    display: block !important;
+  }
+  [aria-labelledby*=login-modal].base-modal .modal-dialog .modal-content .login-modal .login-img  h2{
+   display: none !important;
+  }
+
+  [aria-labelledby=change-password-modal].base-modal .modal-dialog .modal-content .page{
+    padding: 1.319vw 2.083vw 1.319vw 2.083vw !important;
+    }
+    
+    [aria-labelledby=change-password-modal].base-modal .modal-dialog .modal-content .change-pass-img h2{
+    display: none;
+    }
+    
+    [aria-labelledby=change-password-modal] .modal-body .form-title h2{
+    display: block;
+    }
+    
+    [aria-labelledby=forgot-password-modal].base-modal .modal-dialog .modal-content .forgot-pass-img h2{
+    display: none;
+    }
+    [aria-labelledby=forgot-password-modal].base-modal .modal-dialog .modal-content .modal-body .page .form-container .form-title h2{
+    display: block;
+    }
+}
+
+@media(min-width:767px) and (max-width:1180px)
+{
+[aria-labelledby=forgot-password-modal].base-modal .modal-dialog .modal-content{
+  max-width: 500px;
+}
+}
+@media(min-width:767px) and (max-width:1180px)
+{
+[aria-labelledby=forgot-password-modal].base-modal .modal-dialog .modal-content{
+  max-width: 541px;
+}
+}
+@media(max-width:1550px){
+  [aria-labelledby=congratulations-modal].base-modal .modal-dialog .modal-content{
+    width: 850px;
+  }
+ 
+}
+
+[aria-labelledby=congratulations-modal].base-modal .modal-dialog .modal-content{
+  border: 0.5px solid transparent !important;
+}
+
+.animation {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.PaymentEmailField{
+  border:red solid 2px !important;
+}
+// @media(max-width:1600px){
+//   .small-modal .modal-dialog .modal-content .modal-body .register-video img{
+//     height: 676px !important;
+//   }
+// }
+//end
+.input-editicon{
+  background-color: transparent;
+}
+
+[aria-labelledby="otp-varify-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-container .form-group .input-icon-wrap{
+  input{
+    height: 47.44px;
+
+  }
+}
+[aria-labelledby="otp-varify-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-container .form-group .input-icon-wrap  .form-feedback1{
+ 
+  right: 30px !important;
+  left: 0px;
+  font-size: 10px !important;
+  top: 50px;
+  }
+[aria-labelledby="otp-varify-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-container .input-icon{
+  margin-top: 10%;
+  img{
+      width: 20px;
+      cursor: pointer;
+    }
+}
+[aria-labelledby="otp-varify-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-container .input-icon {
+  .otpEditIcon{
+    opacity: 0.5;
+    cursor: context-menu;
+  }
+}
+
+[aria-labelledby="otp-varify-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-container .EditEmail{
+    width: 100%;
+    background: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0px 9px 20px #d3d3d3;
+    border-radius: 24px;
+    border-bottom: 1px solid #D3D3D3;
+    border-left: 1px solid #D3D3D3;
+    border-right: 1px solid #D3D3D3;
+    text-align: center;
+    height: 250px;
+    position: relative;
+    h2{
+    font-size: 30px !important;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    }
+    .form-group .button-section .btn-rounded:hover span, .btn-rounded:focus span{
+
+      transform:none !important
+      
+    }
+
+}
+
+@media (min-width: 375px) and (max-width: 500px){
+  [aria-labelledby="otp-varify-modal"].base-modal .modal-dialog .modal-content .modal-body .page .form-container .EditEmail  .form-group .button-section .btn-rounded{
+    font-size: 17px !important;
+  }
+ 
+}
+@media (min-width: 375px) and (max-width: 500px){
+  .password-recovery-form .form-group .col-lg-12 .input-icon-wrap .passwordmatch{
+    bottom: -29px;
+    font-size: 10px;
+    letter-spacing: 0.11px;
+  }
+ 
+  }
+  @media (min-width: 1100px) and (max-width: 1500px){
+    .password-recovery-form .form-group .col-lg-12 .input-icon-wrap .passwordmatch{
+      bottom: -29px;
+      font-size: 10px;
+      letter-spacing: 0.11px;
+}}
+@media (min-width: 1500px) and (max-width: 1800px){
+  .password-recovery-form .form-group .col-lg-12 .input-icon-wrap .passwordmatch{
+    bottom: -29px;
+    font-size: 10px;
+    letter-spacing: 0.11px;
+}}
+
+
+.congratulation-input{
+width: 100% !important;
+}

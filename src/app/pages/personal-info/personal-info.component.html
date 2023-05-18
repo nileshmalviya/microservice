@@ -1,0 +1,129 @@
+<div class="row my-personal-info-section">
+    <div class="col-md-12">
+        <div class="main_heading">
+        <h4><img src="assets/images/user.svg">{{'my_personal_information' | translate}}</h4>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="myPersonalSec">
+            <!-- <app-loader *ngIf="loading; else content"></app-loader>
+            <ng-template #content></ng-template>  -->
+            <div class="account-section-inner">
+                <form
+                #infoForm="ngForm"
+                class="setting-form"
+                (ngSubmit)="Submit(infoForm)"
+                >
+                <!-- (ngSubmit)="Submit(settingForm)" -->
+                  <div class="form-group row">
+                      <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                        <label for="address">{{'address' | translate}}</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="address"
+                          placeholder="{{'address' | translate}}"
+                          name="address"
+                          [(ngModel)]="userInfoDataModel.address"
+                          autocomplete="off"
+                          required
+                        />
+                        <span class="form-feedback">{{"required_field_error" | translate}}</span>
+                      </div>
+                      <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                        <label for="apartment">{{'apartment' | translate}}, {{'suit' | translate}}, {{'etc' | translate}}</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="apartment"
+                          placeholder="{{'apartment' | translate}}, {{'suit' | translate}}, {{'etc' | translate}}"
+                          name="apartment"
+                          [(ngModel)]="userInfoDataModel.apartment"
+                          autocomplete="off"
+                          required
+                        />
+                        <span class="form-feedback">{{"required_field_error" | translate}}</span>
+                      </div>
+                  </div>
+                  <div class="form-group row" style="align-items: end;">
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                      <label for="city">{{'city' | translate}}</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="city"
+                        placeholder="{{'cityPlaceholder' | translate}}"
+                        name="{{'city' | translate}}"
+                        [(ngModel)]="userInfoDataModel.city"
+                        autocomplete="off"
+                        required
+                      />
+                       <span class="form-feedback">{{"required_field_error" | translate}}</span> 
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                        <label for="state">{{'state_province' | translate}}</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="state"
+                          placeholder="{{'statePlaceholder' | translate}}"
+                          name="state"
+                          [(ngModel)]="userInfoDataModel.state"
+                          autocomplete="off"
+                          required
+                        />
+                        <span class="form-feedback">{{"required_field_error" | translate}}</span> 
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12" (click)="countryValidation1()">
+                      <label for="country">{{'country' | translate}}</label>
+                      <select
+                        class="form-control"
+                        id="country"
+                        name="{{'country' | translate}}"
+                        [(ngModel)]="userInfoDataModel.countryId"
+                        [ngStyle]="{'color': userInfoDataModel.countryId== 0 ? '#180d1d' : ''}"
+                      >
+                        <option *ngFor="let obj of countryObject"  [value]="obj.id" [selected]="obj.id == userInfoDataModel.countryId">{{ obj.name }}</option>
+                      </select>
+                      <span *ngIf="countryValidation"  class="form-feedback3">{{"required_field_error" | translate}}</span> 
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                        <label for="zipCode">{{'zip_postal_code' | translate}}</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="zipCode"
+                          placeholder="{{'zip_postal_code' | translate}}"
+                          name="zipCode"
+                          [(ngModel)]="userInfoDataModel.zipCode"
+                          autocomplete="off"
+                          required
+                        />
+                        <span class="form-feedback">{{"required_field_error" | translate}}</span> 
+                      </div>
+                  </div>
+                  <!-- <div class="form-group row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                      <label for="message">Message</label>
+                      <textarea class="form-control" id="message" name="message" [(ngModel)]="contactModel.message" required autocomplete="off" rows="4" placeholder="Type your message here"></textarea>
+                      <span class="form-feedback">{{"required_field_error" | translate}}</span>
+                    </div>
+                  </div> -->
+
+                  <div class="form-group row">
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-12 button-section">
+                        <button  class="btn-rounded rnv-btn-img btn-login mt-3" type="submit">
+                          <span>{{'save' | translate}}</span>
+                        </button>
+                        <button  class="btn-rounded rmv-btn-img btn-cancel mt-3" type="button">
+                          <span>{{'cancel' | translate}}</span>
+                        </button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+<div class="baner-box image-mobile custom-winner-banner1111">
+  <!-- <img src="../../../assets/images/banner-congratulations.svg" /> -->
+  <video playsinline autoplay="autoplay" [muted]="true" loop="true" id="" class="gambling_vidio" *ngIf="ShowVideoImg">
+    <source src="../../../assets/video/winner_page_header.mp4" type="video/mp4" >
+  </video>
+  <img src="../../../assets/images/about/our_policy_winner.jpg"  alt="" style="margin-top: 50px;" *ngIf="!ShowVideoImg">
+  <h2>{{'congratulations' | translate | uppercase}}</h2>
+  <!-- <div class="banner-btn inner-btn">
+    <button *ngIf="!accountService.connectedUser;" class="btn-rounded" type="button" (click)="modalService.openRegisterModal()">
+      <span [attr.data-hover]="'join_now' | translate | uppercase">{{"join_now" | translate | uppercase}}</span>
+    </button>
+    <a (click)="scroll()" [routerLink]="'/home'" [queryParams]="{isActive: true}"  *ngIf="accountService.connectedUser;" class="btn-rounded btn-outlined-white btn-join">
+      <span [attr.data-hover]="'enter_to_win' | translate | uppercase">{{"enter_to_win" | translate | uppercase}}</span>
+    </a>
+  </div> -->
+</div>
+<div #raffles style="height:20px"></div>
+<!-- <table style="width: 60%;justify-content: center;margin-left: auto;margin-right: auto;">
+        <tr style="color: red;">
+            <th style="text-align: center;">RaffleId</th>
+            <th style="text-align: center;">RaffleName</th>
+            <th style="text-align: center;">Winner Ticket No.</th>
+            <th style="text-align: center;">User Email</th>
+        </tr>
+    </table>  -->
+
+<div class="full-container" >
+  <div class="row">
+    <div class="col-lg-2 col-md-0 ad-img">
+      <!-- <img src="../../../assets/images/ad-img1.svg" /> -->
+    </div>
+    <div class="col-lg-8 col-md-12">
+      <div class="table-box">
+        <h3 class="table-title"><span>{{selectedMonth | translate}}-{{selectedYear}}</span> {{'winner' | translate | uppercase}}</h3>
+     
+        <app-loader *ngIf="isLoading"></app-loader>
+        <div
+          class="congratulations-table"
+          style="overflow-y: auto; height: 595px"
+        >
+          <table class="table">
+            <thead style="background-color: #ff3c4c; color: #fff">
+              <tr>
+                <th scope="col">{{'raffleId' | translate}}</th>
+                <th scope="col">{{'raffleName' | translate}}</th>
+                <th scope="col">{{'winner_ticket_no' | translate}}</th>
+                <!-- <th scope="col" *ngIf="connectedUser !=null"> {{'is_winner'| translate}}</th> -->
+                 <th scope="col" *ngIf="connectedUser !=null"> {{'is_winner'| translate}}</th>
+                <!-- <th scope="col">User Email</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of dataSource; index as i">
+                <td style="text-align: center">{{item.raffleId}}</td>
+                <td style="text-align: center">{{item.raffleName}}</td>
+                <td style="text-align: center">
+                  {{item.winningRaffleTicketId}}
+                </td>
+                <td style="text-align: center;" *ngIf="connectedUser!=null" >{{item.isWinnerOrNot?'Yes':'No'}}</td>
+                <!-- <td style="text-align: center;">{{item.winnerEmail}}</td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-0 ad-img">
+      <!-- <img src="../../../assets/images/ad-img2.svg" /> -->
+    </div>
+  </div>
+</div>
+<a #Winners></a>
+<div class="full-container">
+  <div class="section-past-winners">
+    <h2 class="section-title text-center">{{'past_winner' | translate}}</h2>
+    <div class="inner-past-winners">
+    <div class="row" *ngFor="let item of winningYear">
+      <div class="col-3 col-md-3 col-lg-2">
+        <span class="bg-btn">{{item}}</span>
+      </div>
+      <div class="col-9 col-md-9 col-lg-10" >
+        <ul class="month-list"  *ngIf="currentDate.getFullYear() == item; else oldYear;">
+
+          <li (click)="getWinnerList(12,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 12"><span [ngClass]="{'active': selectedItem == 12}" (click)="listClick($event, 12)">{{'December' | translate}}</span></li>
+          <li (click)="getWinnerList(11,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 11"><span [ngClass]="{'active': selectedItem == 11}" (click)="listClick($event, 11)">{{'November' | translate}}</span></li>
+          <li (click)="getWinnerList(10,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 10"><span [ngClass]="{'active': selectedItem == 10}" (click)="listClick($event, 10)">{{'October' | translate}}</span></li>
+          <li (click)="getWinnerList(9,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 9"><span [ngClass]="{'active': selectedItem == 9}" (click)="listClick($event, 9)">{{'September' | translate}}</span></li>
+          <li (click)="getWinnerList(8,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 8"><span [ngClass]="{'active': selectedItem == 8}" (click)="listClick($event, 8)">{{'August' | translate}}</span></li>
+          <li (click)="getWinnerList(7,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 7"><span [ngClass]="{'active': selectedItem == 7}" (click)="listClick($event, 7)">{{'July' | translate}}</span></li>
+          <li (click)="getWinnerList(6,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 6"><span [ngClass]="{'active': selectedItem == 6}" (click)="listClick($event, 6)">{{'June' | translate}}</span></li>
+          <li (click)="getWinnerList(5,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 5"><span [ngClass]="{'active': selectedItem == 5}" (click)="listClick($event, 5)">{{'May' | translate}}</span></li>
+          <li (click)="getWinnerList(4,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 4"><span [ngClass]="{'active': selectedItem == 4}" (click)="listClick($event, 4)">{{'April' | translate}}</span></li>
+          <li (click)="getWinnerList(3,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 3"><span [ngClass]="{'active': selectedItem == 3}" (click)="listClick($event, 3)">{{'March' | translate}}</span></li>
+          <li (click)="getWinnerList(2,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 2" ><span [ngClass]="{'active': selectedItem == 2}" (click)="listClick($event, 2)">{{'February' | translate}}</span></li>
+          <li (click)="getWinnerList(1,item,userid); scroll()" *ngIf="currentDate.getMonth() + 1 >= 1" ><span [ngClass]="{'active': selectedItem == 1}" (click)="listClick($event, 1)" > {{'January' | translate}}</span></li>
+        </ul>
+
+      </div>
+      <ng-template #oldYear>
+        <ul class="month-list" >
+          <li (click)="getWinnerList(12,item,userid); scroll()" ><span>{{'December' | translate}}</span></li>
+          <li (click)="getWinnerList(11,item,userid); scroll()" ><span>{{'November' | translate}}</span></li>
+          <li (click)="getWinnerList(10,item,userid); scroll()" ><span>{{'October' | translate}}</span></li>
+          <li (click)="getWinnerList(9,item,userid); scroll()"  ><span>{{'September' | translate}}</span></li>
+          <li (click)="getWinnerList(8,item,userid); scroll()"  ><span>{{'August' | translate}}</span></li>
+          <li (click)="getWinnerList(7,item,userid); scroll()"  ><span>{{'July' | translate}}</span></li>
+          <li (click)="getWinnerList(6,item,userid); scroll()"  ><span>{{'June' | translate}}</span></li>
+          <li (click)="getWinnerList(5,item,userid); scroll()"  ><span>{{'May' | translate}}</span></li>
+          <li (click)="getWinnerList(4,item,userid); scroll()"  ><span>{{'April' | translate}}</span></li>
+          <li (click)="getWinnerList(3,item,userid); scroll()"  ><span>{{'March' | translate}}</span></li>
+          <li (click)="getWinnerList(2,item,userid); scroll()"  ><span>{{'February' | translate}}</span></li>
+          <li (click)="getWinnerList(1,item,userid); scroll()"  ><span>{{'January' | translate}}</span></li>
+        </ul>
+      </ng-template>
+    </div>
+    <!-- <div class="row">
+      <div class="col-3 col-md-3 col-lg-2">
+        <span class="bg-btn">2020</span>
+      </div>
+      <div class="col-9 col-md-9 col-lg-10">
+        <ul class="month-list">
+          <li><a href="#">December</a></li>
+          <li><a href="#">November</a></li>
+          <li><a href="#">October</a></li>
+          <li><a href="#">September</a></li>
+          <li><a href="#">August</a></li>
+          <li><a href="#">July</a></li>
+          <li><a href="#">June</a></li>
+          <li><a href="#">May</a></li>
+          <li><a href="#">April</a></li>
+          <li><a href="#">March</a></li>
+          <li><a href="#">February</a></li>
+          <li><a href="#">January</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 col-md-3 col-lg-2">
+        <span class="bg-btn">2019</span>
+      </div>
+      <div class="col-9 col-md-9 col-lg-10">
+        <ul class="month-list">
+          <li><a href="#">December</a></li>
+          <li><a href="#">November</a></li>
+          <li><a href="#">October</a></li>
+          <li><a href="#">September</a></li>
+          <li><a href="#">August</a></li>
+          <li><a href="#">July</a></li>
+          <li><a href="#">June</a></li>
+          <li><a href="#">May</a></li>
+          <li><a href="#">April</a></li>
+          <li><a href="#">March</a></li>
+          <li><a href="#">February</a></li>
+          <li><a href="#">January</a></li>
+        </ul>
+      </div>
+    </div> -->
+  </div>
+  </div>
+</div>
+
+<!-- <p class="text-center mt-5">
+  <button  style="width: 226px;" type="button" class=" btn-scroll-down btn-rounded"><span data-hover="LET`S START!">LET`S START!</span></button>
+</p> -->

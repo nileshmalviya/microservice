@@ -1,0 +1,93 @@
+<!-- Footer -->
+<footer>
+  <!-- Cookie POP UP -->
+
+  <div class="footer-outer">
+    <div class="footer-inner">
+      <!-- Newsletter -->
+      <div class="newsletter-container">
+        <p>{{'footer_sign_up_for_statement' | translate}} </p>
+        <form #newsForm="ngForm" (ngSubmit)="onSubmit(newsForm)">
+          <div class="form-row">
+            <div class="form-group col">
+              <input
+                type="email"
+                class="form-control"
+                id="SubscriberEmail"
+                placeholder="{{'Enter_your_email' | translate}}"
+                name="SubscriberEmail"
+                autocomplete="off"
+                required
+                (keyup)="validateEmail(emails.value)"
+                email="true"
+                #emails
+                [(ngModel)]="subscriberEmail"
+              >
+              <span class="form-feedback1" style="position: static !important;color: #f0b624 !important; font-size: 11px !important;"  *ngIf="isEmailValid">{{ 'invalid mail' | translate}}</span>
+              <span class="form-feedback1" style="position: static !important;color: #f0b624 !important; font-size: 11px !important;"  *ngIf="UserAlredyExist">{{'user_alredy_exist'| translate}}</span>
+            </div>
+            <div class="form-group col-auto col-xl-auto send-col">
+              <button
+              [disabled]="isEmailValid"
+                class="btn btn-light btn-submit"
+                type="submit"
+              >{{'send' | translate}}</button>
+            </div>
+            <div class="form-group checkbox-group col-12">
+              <div class="custom-control custom-checkbox">
+                <input
+                [(ngModel)]="termsAccepted"
+                  [ngModelOptions]="{standalone: true}"
+                  class="form-control custom-control-input"
+                  [class.selected]="isChecked"
+                  id="terms-agree"
+                  name="termsOfUse"
+                  required
+                  type="checkbox"
+                >
+                <label class="custom-control-label" for="terms-agree">{{'accept_terms' | translate}} <a (click)="scrollToTop()" routerLink="/terms-of-use" title="terms of use">{{'terms' | translate}}</a></label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="footerIcons">
+        <a target="_blank" href="https://www.twitter.com/2raffle_com"><img alt="2Raffle" src="https://uajuch.stripocdn.email/content/guids/CABINET_e73ea22b356947b6d53701f637d24a28/images/twitter_3_deK.png"></a>
+        <!-- <a target="_blank" *ngIf="!checkdevice"  href="fb://page/109321928350365"><img class="facebook" alt="2Raffle" src="https://uajuch.stripocdn.email/content/guids/CABINET_64c872857a6b30dfeaf755ddf659555d/images/unnamed_4.jpg"></a> -->
+        <a target="_blank" href="https://www.facebook.com/109321928350365"><img class="facebook" alt="2Raffle" src="https://uajuch.stripocdn.email/content/guids/CABINET_64c872857a6b30dfeaf755ddf659555d/images/unnamed_4.jpg"></a>
+        <a  target="_blank" href="https://www.instagram.com/2raffle_com/"><img alt="2Raffle" src="https://uajuch.stripocdn.email/content/guids/CABINET_64c872857a6b30dfeaf755ddf659555d/images/unnamed_5.jpg"></a>
+        <a target="_blank"  href="https://openinapp.co/tiktok-3" ><img alt="2Raffle" src="assets/images/footer/TikTok.png"></a> 
+      </div>
+      </div>
+      
+      <!-- Logo -->
+      <div class="logo-container">
+        <img alt="2Raffle" src="assets/images/footer/footer-logo.svg">
+      </div>
+
+      <!-- Nav -->
+      <div class="nav-container">
+        <div class="nav">
+          <a class="nav-link" (click)="scrollToTop()" routerLink="home">{{'raffles' | translate}}</a>
+          <a class="nav-link" (click)="scrollToTop()" routerLink="how-to">{{'how_to_win' | translate}}</a>
+          <a class="nav-link" (click)="scrollToTop()" routerLink="about">{{'about' | translate}}</a>
+          <a class="nav-link" href="javascript:" (click)="modalService.openRegisterModal()" *ngIf="!accountService.connectedUser;">{{'sign_up' | translate}}</a>
+          <a class="nav-link" (click)="scrollToTop()" routerLink="contact">{{'contact' | translate}}</a>
+          <img alt="2Raffle" class="d-md-none" src="assets/images/footer/footer-logo.svg">
+          <a class="nav-link" (click)="scrollToTop()" routerLink="responsibleRaffle">{{'gambling' | translate}}</a>
+          <!-- <a class="nav-link" routerLink="services">{{'services' | translate}}</a> -->
+          <a class="nav-link" (click)="scrollToTop()" routerLink="terms-of-use">{{'terms' | translate}}</a>
+          <a class="nav-link" (click)="scrollToTop()" routerLink="policy">{{'policy' | translate}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="payments-logos">
+    <img alt="Google pay" src="assets/images/footer/google-pay.svg">
+    <img alt="Mastercard" src="assets/images/footer/master-card.svg">
+    <img alt="Visa" src="assets/images/footer/visa-card.svg">
+    <!-- <img alt="Apple pay" src="assets/images/footer/apple-pay-logo.png"> -->
+    <img alt="PayPal" src="assets/images/footer/paypal-logo.svg">
+    <img alt="American express" src="assets/images/footer/american-express-logo.svg">
+  </div>
+</footer>
+

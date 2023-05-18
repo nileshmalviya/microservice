@@ -1,0 +1,269 @@
+<!--ToDo: upd translations-->
+<div class="modal-body">
+  <button
+  style="z-index: 999;"
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="ActiveModalClose()"
+  >
+    <!-- <span aria-hidden="true">&times;</span> -->
+  </button>
+  <section class="page  congratulations">
+    <app-loader *ngIf="loading else content"></app-loader>
+    <ng-template #content>
+      <div class="form-container section-title">
+        <!-- Logo -->
+        <img
+          class="login-logo-img d-none d-xl-block"
+          alt=""
+          src="assets/images/logo_r.svg"
+        />
+
+        <div class="form-title">
+          <h2 class="congratulations-title">{{'congratulations' | translate | uppercase}}
+            <span>
+              <!-- {{ "Please enter your credentials to login" | translate }} -->
+              {{'congratulations.youwon' | translate | uppercase}} {{productName}}
+            </span>
+          </h2>
+
+        </div>
+        <form
+        name="myform"
+        #congratulation="ngForm" class="login-form payment-form"
+        (ngSubmit)="winnerCongratulation(congratulation)">
+          <p class="congratulation-address">{{'congratulations.personal_info_title' | translate}}</p>
+           <div class="row">
+
+           <div class="form-group col-lg-6 col-md-6 col-sm-6">
+           <div class="input-icon-wrap congratulation-input">
+               <input
+               type="text"
+               name="firstName"
+               id="firstName"
+               [(ngModel)]="firstName"
+               class="input-with-icon"
+               required
+               appForbiddenName="bob"
+               placeholder="{{'firstNamePlaceholder' | translate}}"
+               #fname="ngModel"
+               />
+                <span class="text-danger validation" *ngIf="fname.touched || congratulation.submitted">
+                   <span *ngIf="fname?.errors?.required"> {{"Invalid First Name" | translate}}</span>
+                 </span>
+               <!-- <span class="form-feedback" [ngClass]="" *ngIf="fname">
+                {{"invalid First Name" | translate}}
+              </span> -->
+           </div>
+           </div>
+           <div class="form-group col-lg-6 col-md-6 col-sm-6">
+               <div class="input-icon-wrap congratulation-input">
+                   <input
+                   type="text"
+                   name="lastName"
+                   id="lastName"
+                   class="input-with-icon"
+                   required
+                   [(ngModel)]="lastName"
+                   appForbiddenName="bob"
+                   placeholder="{{'lastNamePlaceholder' | translate}}"
+                   #lname="ngModel"
+                   />
+                   <span class="text-danger validation" *ngIf="lname.touched || congratulation.submitted">
+                    <span *ngIf="lname?.errors?.required"> {{"Invalid Last Name" | translate}}</span>
+                  </span>
+               </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="form-group  col-lg-6 col-md-6 col-sm-6">
+           <div class="input-icon-wrap congratulation-input">
+               <input
+               type="text"
+               id="idNumber"
+               name="idNumber"
+               [(ngModel)]="idNumber"
+               class="input-with-icon"
+               required
+               placeholder="{{'identificationPlaceholder' | translate}}"
+               #idnumber="ngModel"
+               />
+              <span class="text-danger validation" *ngIf="idnumber.touched || congratulation.submitted">
+                <span *ngIf="idnumber?.errors?.required"> {{"Please Enter Id Number" | translate}}</span>
+              </span>
+              <span class="text-danger validation">
+                <ng-container
+                *ngIf="
+                  idnumber.errors &&
+                  idnumber.errors.pattern
+                "
+              >
+                {{ "idNumberLength" | translate }}
+              </ng-container>
+              </span>
+           </div>
+           </div>
+
+
+           <div class="form-group  col-lg-6 col-md-6 col-sm-6">
+            <div class="input-icon-wrap congratulation-input">
+                <input
+                type="text"
+                id="phonenumber"
+                name="PhoneNumber"
+                [(ngModel)]="phoneNumber"
+                class="input-with-icon"
+                required
+                placeholder="{{'phone_number_congratulations' | translate}}"
+                #phonenumber="ngModel"
+                />
+               <span class="text-danger validation" *ngIf="phonenumber.touched || congratulation.submitted">
+                 <span *ngIf="phonenumber?.errors?.required"> {{"Please Enter Phone Number" | translate}}</span>
+               </span>
+               <span class="text-danger validation">
+                 <ng-container
+                 *ngIf="
+                   phonenumber.errors &&
+                   phonenumber.pattern
+                 "
+               >
+                 {{ "idNumberLength" | translate }}
+               </ng-container>
+               </span>
+            </div>
+            </div>
+
+
+          </div>
+           <p class="congratulation-address">{{'congratulations.address_info_title' | translate}}</p>
+           <div class="row">
+           <div class="form-group col-lg-6 col-md-6 col-sm-6">
+               <div class="input-icon-wrap congratulation-input">
+                   <input
+                   type="text"
+                   class="input-with-icon"
+                   id="country"
+                   [(ngModel)]="country"
+                   name="country"
+                   required
+                   placeholder="{{'countryPlaceholder' | translate}}"
+                   #countryname="ngModel"
+                   />
+                   <span class="text-danger validation" *ngIf="countryname.touched || congratulation.submitted">
+                    <span *ngIf="countryname?.errors?.required"> {{"Invalid country name" | translate}}</span>
+                  </span>
+                   <!-- <span class="text-danger validation" *ngIf="expDate.touched || paymentForm.submitted">
+                       <span *ngIf="expDate.errors.required"> number is required</span>
+                       </span> -->
+                   <span class="form-feedback">{{ "wrong number" | translate }}</span>
+               </div>
+               </div>
+               <div class="form-group col-lg-6 col-md-6 col-sm-6">
+
+               <div class="input-icon-wrap congratulation-input">
+                   <input
+                   type="text"
+                   class="input-with-icon"
+                   id="city"
+                   name="city"
+                   [(ngModel)]="city"
+                   placeholder="{{'cityPlaceholder' | translate}}"
+                   required
+                   #cityname="ngModel"
+                   />
+                   <span class="text-danger validation" *ngIf="cityname.touched || congratulation.submitted">
+                    <span *ngIf="cityname?.errors?.required"> {{"Invalid city name" | translate}}</span>
+                  </span>
+                   <!-- <span class="text-danger validation" *ngIf="securityCode.touched || paymentForm.submitted">
+                       <span *ngIf="securityCode.errors.required"> number is required</span>
+                       </span> -->
+
+                   <span class="form-feedback">{{ "wrong number" | translate }}</span>
+               </div>
+               </div>
+           </div>
+
+           <div class="form-group">
+               <div class="input-icon-wrap congratulation-input">
+                   <input
+                   type="text"
+                   id="address"
+                   name="address"
+                   [(ngModel)]="address"
+                   class="input-with-icon"
+                   required
+                   placeholder="Address"
+                   #addresname="ngModel"
+                   />
+                   <span class="text-danger validation" *ngIf="addresname.touched || congratulation.submitted">
+                    <span *ngIf="addresname?.errors?.required"> {{"Invalid Address" | translate}}</span>
+                  </span>
+               </div>
+               </div>
+               <div class="form-group">
+                   <div class="input-icon-wrap congratulation-input">
+                       <input
+                       type="text"
+                       id="zipCode"
+                       name="zipCode"
+                       [(ngModel)]="zipCode"
+                       [pattern]="zipCodeRegex"
+                       class="input-with-icon"
+                       minlength="5"
+                       required
+                       placeholder="{{'zipPlaceholder' | translate}}"
+                       #zipcode="ngModel"
+                       />
+                       <span class="text-danger validation" *ngIf="zipcode.touched || congratulation.submitted">
+                        <span *ngIf="zipcode?.errors?.required"> {{"Invalid Zip Code" | translate}}</span>
+                      </span>
+                      <span class="text-danger validation">
+                        <ng-container
+                        *ngIf="
+                          zipcode.errors &&
+                          zipcode.errors.pattern
+                        "
+                      >
+                        {{ "zipLength" | translate }}
+                      </ng-container>
+                      </span>
+                   </div>
+                   </div>
+           <div class="wrong-credentials">
+           {{ "wrong_credentials" | translate }}
+           </div>
+        <div class="congratulation-btn" *ngIf="!winnerDetailsCorrectOrNot" >
+           <button class="btn-rounded btn-login mb-3 btn-collect-reward" type="submit">
+           <span [attr.data-hover]="['congratulations.submit' | translate]">{{'congratulations.submit'| translate}}</span>
+           </button>
+       </div>
+       <div *ngIf="winnerDetailsCorrectOrNot" class="congrutulations_succes">
+         {{'request_has_been_submitted_sucessfully_congratulations' | translate}}
+       </div>
+       </form>
+
+      </div>
+    </ng-template>
+
+    <!-- Login image -->
+    <div class="image-container"></div>
+  </section>
+  <div class="congratulation_video">
+    <video playsinline autoplay="autoplay" [muted]="true" loop="true" class="desktop_view" *ngIf="ShowVideoImg">
+      <source src="assets/video/Congratulations_01_ORIGINAL.mp4" type="video/mp4" >
+    </video>
+     <img src="../../../assets/images/modals/Congratulations_477x7420.png" style="height: 100%;" alt="" class="desktop_view" *ngIf="!ShowVideoImg">
+    <video playsinline autoplay="autoplay" [muted]="true" loop="true" class="tablet_view" *ngIf="ShowVideoImg">
+      <source src="assets/video/Congratulations_770X280_a.mp4"  type="video/mp4" >
+    </video>
+    <img src="../../../assets/images/modals/Congratulations_770X2800.png" class="tablet_view" alt="" style="height: 100%;"  *ngIf="!ShowVideoImg">
+    <video playsinline autoplay="autoplay" [muted]="true" loop="true" class="mobile_view" *ngIf="ShowVideoImg">
+      <source src="assets/video/Congratulations_640X240_a.mp4" type="video/mp4" >
+    </video>
+    <img src="../../../assets/images/modals/Congratulations_640X240.png"  class="mobile_view" alt="" style="height: 100%;"  *ngIf="!ShowVideoImg">
+  </div>
+</div>
+
+
+

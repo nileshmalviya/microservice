@@ -1,0 +1,50 @@
+<div class="row my-purchase-section">
+    <div class="col-md-12">
+        <div class="main_heading">
+        <h4><img src="assets/images/user.svg">{{'purchase_history' | translate}}</h4>
+        </div>
+    </div><div class="col-md-12">
+        <div class="myPurchaseSec">
+            <div class="table-responsive">     
+<ngx-datatable 
+    class="material"
+    [rows]='dataSource' [count]="totalCount" [limit]="10"   [externalPaging]="true" [offset]="offset" (page)="setPage($event)"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"    
+    [scrollbarH]="true"
+    [virtualization]="false"  
+>  
+<ngx-datatable-column name="{{'date' | translate}}">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+        {{formateDate(row.purchaseDateTimeModel)}}
+      </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="{{'time' | translate}}">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+        {{formateTime(row.purchaseDateTimeModel)}}
+      </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="{{'order_no' | translate}}">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+       {{row.orderId}}
+      </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="{{'total_tickets' | translate}}">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.package}}
+     </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="{{'amount' | translate}}">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.cost}}
+      </ng-template>
+</ngx-datatable-column>
+
+</ngx-datatable>
+</div>
+</div></div></div>

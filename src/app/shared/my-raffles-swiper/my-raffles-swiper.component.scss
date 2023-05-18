@@ -1,0 +1,65 @@
+section.section-my-raffles
+{
+    .my-raffles-slider {
+        .raffle-item {
+            padding: 10% 3%;
+            background: #fff;
+            margin: 6% 0px;
+            .raffle-image {
+                height: 200px;
+                overflow: hidden;
+                border: 3px solid #000 !important;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                .slide-Img{
+                  width: 100%;
+                  height: 100%;
+                }
+            }
+            .raffle-text {
+                background: #E61E1E;
+                color: #fff;
+                margin: 5px 0;
+                padding: 8px 5px;
+                font-size: 18px;
+                font-family: 'Gellix';
+                font-weight: 500;
+            }
+
+            .raffle-number {
+                padding: 12px 0;
+                border-top: 3px solid #000;
+                border-bottom: 3px solid #000;
+                font-size: 15px;
+                color: #000;
+                font-family: 'Gellix';
+            }
+
+            .raffle-number span {
+                color: #FF1414;
+            }
+            .raffle-announce {
+                font-size: 14px;
+                color: #0EB50E;
+                padding: 6px 0;
+            }
+
+            .raffle-date {
+                font-size: 14px;
+                padding: 6px 0;
+                color: #000000;
+                font-family: 'Gellix';
+                font-size: 11px;
+            }
+
+            .my-raffle-countdown {
+                .flipdown.flipdown__theme-light .rotor, .flipdown.flipdown__theme-light .rotor-top, .flipdown.flipdown__theme-light .rotor-leaf-front {
+                    color: #232323;
+                    background-color: #e20f0f;
+                }
+            }
+        }
+    }
+}

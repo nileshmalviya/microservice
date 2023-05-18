@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>2Raffle</title>
+  <base href="/">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://cdn.safecharge.com/safecharge_resources/v1/websdk/safecharge.js"></script>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MQTJ8C4');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Ads: AW-10860457333 --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10860457333"></script> 
+    <script> window.dataLayer = window.dataLayer || []; 
+      function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date()); gtag('config', 'AW-10860457333'); </script>
+</head>
+<body>
+  <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+
+ <script type="text/javascript">
+        AppleID.auth.init({
+        clientId : 'zangula.2raffle.Service',
+        scope : 'name email',
+        redirectURI : 'https://client.staging.2raffle.zangula.net',
+        state : 'Apple login done',
+        response_type: 'code id_token',
+        response_mode:'form_post',
+        usePopup : true //or false defaults to false
+    });
+    var selectedLanguage = localStorage.getItem("selectedLanguage");
+    if(selectedLanguage == null){
+      localStorage.setItem("selectedLanguage",'es-ES');
+    }
+
+    // maintain user session
+    if(localStorage.getItem('token')){
+      sessionStorage.setItem('token', localStorage.getItem('token'));
+    }
+
+    var sessionStorage_transfer = function(event) {
+    if(!event) { event = window.event; }
+    if(!event.newValue) return;
+    if (event.key == 'getSessionStorage') {
+      localStorage.setItem('sessionStorage', JSON.stringify(sessionStorage));
+      localStorage.removeItem('sessionStorage');
+    } else if (event.key == 'sessionStorage' && !sessionStorage.length) {
+      var data = JSON.parse(event.newValue);
+      for (var key in data) {
+        sessionStorage.setItem(key, data[key]);
+      }
+    }
+  };
+
+  if(window.addEventListener) {
+      window.addEventListener("storage", sessionStorage_transfer, false);
+  } else {
+    window.attachEvent("onstorage", sessionStorage_transfer);
+  };
+
+  if (!sessionStorage.length) {
+    localStorage.setItem('getSessionStorage', 'foobar');
+    localStorage.removeItem('getSessionStorage', 'foobar');
+  };
+
+</script>
+<!-- This code track user activity on application -->
+<!-- Meta Pixel Code -->
+<!-- <script> !function(f,b,e,v,n,t,s) {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window,document,'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '717393679420327'); fbq('track', 'PageView'); </script> -->
+  <!-- End Meta Pixel Code -->
+  <!-- Google Tag Manager -->
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQTJ8C4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  <!-- End Google Tag Manager -->
+  <app-root></app-root>
+</body>
+</html>

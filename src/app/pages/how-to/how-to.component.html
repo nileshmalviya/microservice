@@ -1,0 +1,85 @@
+<!-- Content page -->
+<div class="page how-to-win-page">
+  <!--Content Section Start-->
+  <section class="custom-content-section">
+    <!-- Section Title -->
+    <div class="section-title-custom custom-padding">
+      <h1>{{'how_to_win' | translate}}?</h1>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+          <div class="how-to-inner first">
+            <div class="row">
+              <div class="col-lg-12 col-md-6 col-sm-6 col-6">
+                  <div class="how-to-img">
+                    <video playsinline autoplay="autoplay" [muted]="true" loop="true" id="video-banner" *ngIf="ShowVideoImg">
+                      <source src="assets/video/01_Steps_INNER.mp4" type="video/mp4">
+                    </video>
+                    <img src="../../assets/images/01_Steps_INNER0.png"  alt="" *ngIf="!ShowVideoImg" class="register_desktop_view">
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-6 col-sm-6 col-6 content-flex">
+                  <div class="how-to-content">
+                    <h4 class="how_to_number">1</h4>
+                    <h4 class="how_to_title"> {{'how_to_win_first_title' | translate}}</h4>
+                    <div class="how-to-text">{{'how_to_win_first_text' | translate}}</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- <img class="centre-image left" src="assets/images/Vector 6.svg">
+          <img class="centre-image-mobile left" src="assets/images/tablet_dashed_2.svg"> -->
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+          <div class="how-to-inner second">
+            <div class="row middle-section">
+                <div class="col-lg-12 col-md-6 col-sm-6 col-6">
+                  <div class="how-to-img">
+                    <video playsinline autoplay="autoplay" [muted]="true" loop="true" *ngIf="ShowVideoImg">
+                      <source src="assets/video/02_Steps_INNER.mp4" type="video/mp4" >
+                    </video>
+                    <img src="../../assets/images/02_Package_INNER0.png"  alt="" *ngIf="!ShowVideoImg">
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-6 col-sm-6 col-6 content-flex" style="width:400px;">
+                  <div class="how-to-content">
+                    <div style="display: flex;align-items: center;">
+                      <h4 class="how_to_number">2</h4>
+                      <h4 class="how_to_title">{{'choose_your_package_to_win' | translate}}</h4>
+                    </div> 
+                    <div class="how-to-text">{{'choose_your_package_text' | translate}}</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+          <!-- <img class="centre-image right" src="assets/images/Vector 5.svg">
+          <img class="centre-image-mobile right" src="assets/images/tablet_dashed_1.svg">-->
+          <div class="how-to-inner third"> 
+            <div class="row">
+              <div class="col-lg-12 col-md-6 col-sm-6 col-6">
+                  <div class="how-to-img" >
+                    <video playsinline autoplay="autoplay" [muted]="true" loop="true" id="video-banner" *ngIf="ShowVideoImg">
+                      <source src="assets/video/03_Steps_INNER.mp4" type="video/mp4">
+                    </video>
+                    <img src="../../assets/images/03_Prize_INNER0.png"  alt="" *ngIf="!ShowVideoImg">
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-6 col-sm-6 col-6 content-flex">
+                  <div class="how-to-content">
+                    <h4 class="how_to_number">3</h4>
+                    <h4 class="how_to_title">{{'get_the_results' | translate}}</h4>
+                    <div class="how-to-text">{{'collect_all_your_gift_text' | translate}}</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+    <!--Content Section Start-->
+</div>

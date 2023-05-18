@@ -1,0 +1,8 @@
+{
+  "apiServer": "https://staging.2raffle.zangula.net/api",
+  "version": "1.0.0",
+  "env": {
+    "name": "PROD"
+  },
+  "isDebug": false
+}

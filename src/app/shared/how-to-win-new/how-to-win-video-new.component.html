@@ -1,0 +1,62 @@
+<section class="section-how-to-win"
+         data-aos="fade-up"
+         data-aos-anchor-placement="top-bottom"
+         data-aos-delay="0"
+         data-aos-duration="1500"
+         data-aos-easing="ease-in-out"
+         data-aos-mirror="false"
+         data-aos-offset="0"
+         data-aos-once="false">
+ <div  class="container">
+  <div class="how-to-win">
+    <h2 class="text-center section-title">{{'how_to_win_video_new_component_title' |translate}}</h2>
+    <h3 class="text-center section-subtitle">{{'how_to_win_video_new_component_subtitle' | translate}}</h3>
+    <div class="how_to_win_box">
+      <div class="win-box" style="position: relative;">
+        <video playsinline autoplay="autoplay" [muted]="true" loop="true" preload id="video-banner" *ngIf="ShowVideoImg" class="logo-video animated fadeInUp how_to_win_main">
+          <source src="assets/video/01_Sign_In_For_Main_Page_V01.mp4" type="video/mp4">
+        </video>
+        <img src="../../../assets/images/howtowin/1_Steps_MAIN.jpg"  alt=""  style="width: 100%;" *ngIf="!ShowVideoImg">
+        <!-- <video class="logo-video animated fadeInUp how_to_win_main" loop autoplay muted oncanplay="this.play()" onloadedmetadata="this.muted = true" style="pointer-events: none;"> -->
+        <!-- <video autoplay="autoplay" muted loop="true" class="how_to_win_main"> -->
+          <!-- <source src="assets/video/01_Steps_MAIN_new.mp4" type="video/mp4" >
+        </video> -->
+        <div class="col-lg-12 col-md-6 col-sm-6 col-6 content-flex how-to-content-home-text" style="position: absolute; top: 50%;">
+          <div class="how-to-content-home">
+            <h4 class="how_to_number_home">1</h4>
+            <div class="how-to-text_home"><span>{{'how_to_win_step_video_1_1' | translate | uppercase}} <br> {{'how_to_win_step_video_1_2' | translate | uppercase}} </span></div>
+          </div>
+      </div>
+      </div>
+      <div class="win-box" style="position: relative;">
+        <video playsinline autoplay="autoplay" [muted]="true" loop="true" preload id="video-banner" *ngIf="ShowVideoImg"  class="logo-video animated fadeInUp how_to_win_main">
+        <!-- <video autoplay="autoplay" muted loop="true" class="how_to_win_main"> -->
+          <source src="assets/video/02_Choose_Package_Main_Page_V01.mp4" type="video/mp4" >
+        </video>
+        <img src="../../../assets/images/howtowin/2_Package.jpg"  alt=""  style="width: 100%;" *ngIf="!ShowVideoImg">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-6 content-flex how-to-content-home-text" style="position: absolute; top: 50%;">
+          <div class="how-to-content-home">
+            <h4 class="how_to_number_home">2</h4>
+            <div class="how-to-text_home">{{'how_to_win_step_video_2_1' | translate | uppercase}} <br> {{'how_to_win_step_video_2_2' | translate | uppercase}}</div>
+          </div>
+      </div>
+      </div>
+      <div class="win-box" style="position: relative;">
+        <video playsinline autoplay="autoplay" [muted]="true" loop="true" preload id="video-banner" *ngIf="ShowVideoImg" class="logo-video animated fadeInUp how_to_win_main">
+        <!-- <video autoplay="autoplay" muted loop="true" class="how_to_win_main"> -->
+          <source src="assets/video/03_Prize_For_Main_Page_V01.mp4" type="video/mp4" >
+        </video>
+        <img src="../../../assets/images/howtowin/3_Prizes_MAIN.jpg"  alt=""  style="width: 100%;" *ngIf="!ShowVideoImg">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-6 content-flex how-to-content-home-text" style="position: absolute; top: 50%;">
+          <div class="how-to-content-home">
+            <h4 class="how_to_number_home">3</h4>
+            <!-- <div class="how-to-text_home">{{'collect_all_prizes' | translate | uppercase}}</div> -->
+            <div class="how-to-text_home">{{'how_to_win_step_video_3_1' | translate | uppercase}} <br> {{'how_to_win_step_video_3_2' | translate | uppercase}}</div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>

@@ -1,0 +1,80 @@
+//////////////////////////////////////////
+// Buttons
+//////////////////////////////////////////
+@import "../variables";
+
+.dropdown-custom {
+  .btn-dropdown {
+    position: relative;
+    text-align: left;
+    color: $brand-color-red;
+    font-family: "Gellix", sans-serif;
+    font-size: 6.25vw;
+    font-weight: 900;
+    line-height: 1.22;
+    background-color: #ececec;
+    border-bottom: 3px solid #dbdbdb;
+    box-shadow: none;
+    padding: 2.656vw 2.344vw 3.906vw 2.344vw;
+
+    @include media-breakpoint-up(md) {
+      font-size: 2.344vw;
+      padding: 0.4865vw 0.833vw;
+    }
+    @include media-breakpoint-up(xl) {
+      font-size: 1.25vw;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:after {
+      position: absolute;
+      right: 3.594vw;
+      top: 50%;
+      border: 0;
+      height: 2.5vw;
+      width: 4.219vw;
+      transform: translate(0, -50%);
+      background-size: 100%;
+      background-image: url("../../assets/images/chevron-down.svg");
+      background-repeat: no-repeat;
+      @include media-breakpoint-up(md) {
+        right: 0.694vw;
+        height: 0.66vw;
+        width: 1.125vw;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #ececec;
+    border: 0;
+    box-shadow: 6px 9px 22px 0 rgba(0, 0, 0, 0.1);
+
+    .dropdown-item {
+      padding: 2.344vw;
+      font-size: 5.25vw;
+      font-weight: bold;
+      line-height: 1.33;
+      text-align: left;
+      color: $brand-color-dark;
+      @include media-breakpoint-up(md) {
+        font-size: 15px;
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: 1.042vw;
+        padding: 0.744vw;
+      }
+
+      &:focus {
+        outline: 0;
+        background-color: #ececec;
+      }
+    }
+  }
+}

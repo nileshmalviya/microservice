@@ -1,0 +1,169 @@
+.congratulations-page {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  width: 100%;
+  @include media-breakpoint-up(sm) {
+  }
+  @include media-breakpoint-up(xl) {
+    flex-direction: row;
+    min-height: 720px;
+  }
+
+  .congratulation-inner {
+    width: 100%;
+    padding: 1.319vw 6.25vw 8.444vw 6.25vw;
+    @include media-breakpoint-up(xl) {
+      padding: 1.319vw 6.25vw 4.444vw 6.25vw;
+    }
+    .page-title {
+      align-self: flex-start;
+      margin: 4.063vh 0 7.813vh;
+      @include media-breakpoint-up(xl) {
+        margin: 10.57vh 0 4.667vh;
+      }
+      h3 {
+        font-family: "Gellix";
+        font-size: 5.625vw;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #180d1d;
+        text-align: center;
+        width: 100%;
+        @include media-breakpoint-up(xl) {
+          font-size: 26px;
+        }
+      }
+      svg {
+        max-height: 12.188vw;
+        @include media-breakpoint-up(xl) {
+          max-height: 3.958vw;
+        }
+      }
+      #gc {
+        color: $text-color;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: "Gellix";
+        font-size: 8.594vw;
+        font-weight: bold;
+        line-height: 1.09;
+        letter-spacing: 0.46px;
+
+        @include media-breakpoint-up(md) {
+          font-size: 5.99vw;
+        }
+
+        @include media-breakpoint-up(xl) {
+          font-size: 3.194vw;
+        }
+      }
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      h4 {
+        font-family: "Gellix";
+        font-size: 13px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.15;
+        letter-spacing: normal;
+        text-align: left;
+        color: #b2b2b2;
+      }
+      .form-group {
+        // margin-bottom: 0;
+      }
+      button[type="submit"] {
+        align-self: center;
+      }
+
+      .custom-control-label::after {
+        top: 0rem;
+        left: -1.2rem;
+      }
+
+      input[type="checkbox"] + label {
+        display: block;
+        margin: 0.2em;
+        cursor: pointer;
+        padding: 0.3em 0.3em 0.3em 0.6em;
+      }
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"] + label:before {
+        border: 0.1em solid;
+        background-color: #eaeaea;
+        border-color: #eaeaea;
+        border-radius: 0.2em;
+        display: inline-block;
+        width: 23px;
+        height: 23px;
+        padding-left: 0.2em;
+        padding-bottom: 0.3em;
+        margin-right: 0.2em;
+        vertical-align: bottom;
+        color: transparent;
+        transition: 0.2s;
+      }
+
+      input[type="checkbox"]:checked + label:before {
+        background-color: #eaeaea;
+        border-color: #eaeaea;
+        color: $brand-color-red;
+      }
+
+      input[type="checkbox"]:checked + label:after {
+        content: url("../../assets/images/icons/v.svg");
+        background-image: none;
+      }
+
+      input[type="checkbox"]:disabled + label:before {
+        transform: scale(1);
+        border-color: #aaa;
+      }
+
+      input[type="checkbox"]:checked:disabled + label:before {
+        transform: scale(1);
+        background-color: $brand-color-red;
+        border-color: $brand-color-red;
+      }
+    }
+  }
+
+  .congratulation-img {
+    padding: 1.319vw 6.25vw 4.444vw 6.25vw;
+    width: 100%;
+    min-height: 215px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    background-position: center 20%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../assets/images/gc-bg.jpg"),
+      linear-gradient(121deg, #23232380 8%, #06050580 98%);
+    background-blend-mode: overlay;
+    // background-image: linear-gradient(121deg, #232323 8%, #060505 98%);
+    @include media-breakpoint-up(xl) {
+      background-position: center;
+      //   max-width: 30.208vw;
+      //   height: initial;
+      //   padding: 1.319vw 2.083vw 4.444vw 2.083vw;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+}

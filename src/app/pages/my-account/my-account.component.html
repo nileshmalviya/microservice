@@ -1,0 +1,72 @@
+<div class="page">
+    <section class="custom-content-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 left-section">
+                    <div class="row custom-profile-pending">
+                        <div class="col-md-12">
+                            <div class="profile-section">
+                                <div class="profile-image">
+                                    <img [src]="imageUrl" alt="">
+                                    <label for="file-upload" class="custom-file-upload">
+                                    <input type='file' id="file-upload" name="file-upload" (change)="onSelectFile($event)">
+                                    <img [class]="globalTabId == 'account-setting' ? 'active' : ''" src="assets/images/pencil-edit-button-svgrepo-com.svg">
+                                    </label>
+                                </div>
+                                <div class="profile-content">
+                                    <h4 class="welcome">{{'welcome' | translate}} <strong>{{firstName}} {{lastName}}</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mobile-heading">
+                        <div class="col-md-12">
+                            <!-- Section Title -->
+                            <div class="section-title-custom text-center">
+                                <h1>{{'my_account' | translate}}</h1>
+                            </div>
+                            <div class="main_heading {{globalTabId}}">
+                                <h4><img src="assets/images/user.svg">My Raffles</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="profile-tabs Profile-tab-desktop">
+                                <ul>
+                                    <li [class]="globalTabId == 'my-raffles' ? 'active' : ''"><a routerLink="../my-raffles">{{'my_raffles' | translate}}</a></li>
+                                    <li [class]="globalTabId == 'my-purchases' ? 'active' : ''"><a routerLink="../my-purchases">{{'purchase_history' | translate}}</a></li>
+                                    <li [class]="globalTabId == 'account-setting' ? 'active' : ''"><a routerLink="../account-setting">{{'account_settings' | translate}}</a></li>
+                                    <li [class]="globalTabId == 'personal-info' ? 'active' : ''"><a routerLink="../personal-info">{{'personal_information' | translate}}</a></li>
+                                </ul>
+                            </div>
+                            <div class="profile-tabs Profile-tab-mobile" style="display: none;">
+                                <ul>
+                                    <li [class]="globalTabId == 'my-raffles' ? 'active' : ''"><a routerLink="../my-raffles">{{'my_raffles' | translate}}</a></li>
+                                    <li [class]="globalTabId == 'account-setting' ? 'active' : ''"><a routerLink="../account-setting">{{'account_settings' | translate}}</a></li>
+                                    <li [class]="globalTabId == 'my-purchases' ? 'active' : ''"><a routerLink="../my-purchases">{{'purchase_history' | translate}}</a></li>
+                                    <li [class]="globalTabId == 'personal-info' ? 'active' : ''"><a routerLink="../personal-info">{{'personal_information' | translate}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12 right-section">
+                    <div class="row main-heading custom-padding">
+                        <div class="col-md-12">
+                            <!-- Section Title -->
+                            <div class="section-title-custom left">
+                                <h1>{{'my_account' | translate}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <app-my-raffles *ngIf="globalTabId == 'my-raffles'"></app-my-raffles> <!--My Raffle Component-->
+                    <app-my-purchase *ngIf="globalTabId == 'my-purchases'"></app-my-purchase> <!-- My Purchase Component -->
+                    <app-account-setting *ngIf="globalTabId == 'account-setting'" (onUpdate)=updateDetails($event)></app-account-setting> <!--My Account Setting-->
+                    <app-personal-info *ngIf="globalTabId == 'personal-info'"></app-personal-info> <!--My Personal Information-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

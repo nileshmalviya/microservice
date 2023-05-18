@@ -1,0 +1,169 @@
+<app-loader *ngIf="isLoading else content"></app-loader>
+<ng-template #content>
+<!-- Raffle page -->
+  <div class="page raffle-page">
+    <!-- Content section -->
+    <section class=" raffle-content-section">
+      <div class="custom-container">
+        <div class="row raffle-sec-cont-row">
+          <div class="col-xl-6">
+            <div class="raffle-content">
+              <!-- <h2 class="title">{{'win' | translate}} {{raffle?.productName}}</h2> -->
+               <h2 class="title">{{raffle?.raffleName}}</h2>
+              <!-- <h2>WIN A FLIGHT</h2> -->
+              <!-- <h3>{{'winning odds' | translate}} 25%!</h3> -->
+              <!-- <h4>Every one can winamazing Every one can win!</h4> -->
+              <!-- <h3 [innerHTML]="raffle?.safeProductLegalNotes"></h3> -->
+              <p [innerHTML]="raffle?.safeProductDescription"></p>
+              <!-- <p>play and win amazing prizes with our raffles daily lottery. Every one can winamazing Every one can win! lottery. Every one can winamazing .</p> -->
+
+              <button type="button" (click)="scroll()" class="btn-rounded font-weight-bold">
+                <span
+                [attr.data-hover]="('get_lucky' | translate | uppercase)">{{'get_lucky' | translate | uppercase}}
+                <!-- {{raffle?.ticketPrice}}{{'$ to play!' | translate | uppercase}} -->
+              </span>
+                </button>
+            </div>
+          </div>
+          <div class="col-xl-6 col-6-custom">
+            <div class="raffle-image">
+              <div style="position: relative;">
+                <!-- <img class="banner-image d-none d-xl-block" [src]="raffle?.productImageUrl[1] "> -->
+                <ng-image-slider #nav
+                  class="banner-image main-image-large d-none d-xl-block slide-Img"
+                  [images]="productImageObject"
+                  [infinite]="false"
+                  [imagePopup]="false"
+                  [autoSlide]="1"
+                  [imageSize]="{width: '100%', height: '62%'}"
+                  slideImage="1">
+                </ng-image-slider>
+                <!-- <img class="banner-image d-xl-none" [src]="raffle?.productImageUrl[0] "> -->
+                <ng-image-slider #nav
+                  class="banner-image d-xl-none"
+                  [images]="productImageObject"
+                  [infinite]="false"
+                  [imagePopup]="false"
+                  [autoSlide]="1"
+                  [imageSize]="sliderHeight"
+                  slideImage="1">
+                </ng-image-slider>
+                <div class="raffle-countdown">
+                  <app-flipdown [id]="raffle.uniqueId" [class]="raffle?.hideDay ? 'hideDayclass':'showdayclass'"  (finished)="finishedHandler($event)" [endDate]="raffle?.raffleDate"></app-flipdown>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section
+            class="section-it-is-a-big-deal"
+            data-aos="fade-in"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-delay="0"
+            data-aos-duration="2000"
+            data-aos-easing="ease-out"
+            data-aos-mirror="true"
+            data-aos-offset="100"
+            data-aos-once="true"
+    >
+      <!-- Section Title -->
+      <h2 class="section-title text-center" #raffles> {{'big_deal' | translate}}! </h2>
+      <p class="subtitle">{{'raffle_comp_sub_heading' | translate}}</p>
+      <div class="big-deal-slider" >
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="big-deal-item" (click)="modalService.raffleCurrentPayment =raffle?.rafflePackages[0];modalService.raffleModalData = raffle;buyTickets(raffle?.rafflePackages[0]);">
+              <div class="tickets">
+                <span class="num">{{raffle?.rafflePackages[0].ticketsNumber}}</span>
+                <span class="text">{{'tickets' | translate}}</span>
+              </div>
+              <button type="button" class="btn-rounded">
+                <!-- <span [attr.data-hover]="'ONLY $'+raffle?.rafflePackages[0].price | translate">{{'ONLY $'+raffle?.rafflePackages[0].price | translate}}</span>-->
+                <!-- <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[0].price">{{"only" | translate}}{{' $'+raffle?.rafflePackages[0].price}}</span> -->
+                <span [attr.data-hover]="['sold_out' | translate ]" *ngIf="this.raffle.availableTickets < raffle?.rafflePackages[0].ticketsNumber" >{{'sold_out' | translate}}</span>
+                <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[0].price +['price' | translate]" *ngIf="this.raffle.availableTickets >= raffle?.rafflePackages[0].ticketsNumber" >{{"only" | translate}}{{' $'+raffle?.rafflePackages[0].price}}{{"price" | translate}} </span>
+               
+              </button>
+            </div>
+
+            <div class="big-deal-item most-popular-item" (click)="modalService.raffleCurrentPayment =raffle?.rafflePackages[1];modalService.raffleModalData = raffle;buyTickets(raffle?.rafflePackages[1]);" >
+              <span class="most-popular-box">{{'raffle_most_popular_item' | translate}}</span>
+              <div class="tickets">
+                <span class="num">{{raffle?.rafflePackages[1].ticketsNumber}}</span>
+                <span class="text">{{'tickets' | translate}}</span>
+              </div>
+              <button type="button" class="btn-rounded" >
+                <!-- <span [attr.data-hover]="'ONLY $'+raffle?.rafflePackages[1].price | translate">{{'only' | translate}} ${{raffle?.rafflePackages[1].price}}</span> -->
+                <!-- <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[1].price">{{"only" | translate}}{{' $'+raffle?.rafflePackages[1].price}}</span> -->
+                <span [attr.data-hover]="['sold_out' | translate ]" *ngIf="this.raffle.availableTickets < raffle?.rafflePackages[1].ticketsNumber" >{{'sold_out' | translate}}</span>
+                <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[1].price +['price' | translate]" *ngIf="this.raffle.availableTickets >= raffle?.rafflePackages[1].ticketsNumber" >{{"only" | translate}}{{' $'+raffle?.rafflePackages[1].price}}{{"price" | translate}} </span>
+               
+              </button>
+            </div>
+            <div class="big-deal-item entries-item" (click)="modalService.raffleCurrentPayment =raffle?.rafflePackages[2];modalService.raffleModalData = raffle;buyTickets(raffle?.rafflePackages[2]);">
+              <span class="entries-box">25X {{'entries' | translate}}!</span>
+              <div class="tickets">
+                <span class="num">{{raffle?.rafflePackages[2].ticketsNumber}}</span>
+                <span class="text">{{'tickets' | translate}}</span>
+              </div>
+              <button type="button" class="btn-rounded" >
+                <!-- <span [attr.data-hover]="'ONLY $'+raffle?.rafflePackages[2].price | translate">{{'only' | translate}} ${{raffle?.rafflePackages[2].price}}</span> -->
+                <!-- <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[2].price">{{"only" | translate}}{{' $'+raffle?.rafflePackages[2].price}}</span> -->
+                <span [attr.data-hover]="['sold_out' | translate ]" *ngIf="this.raffle.availableTickets < raffle?.rafflePackages[2].ticketsNumber" >{{'sold_out' | translate}}</span>
+                <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[2].price +['price' | translate]" *ngIf=" this.raffle.availableTickets >= raffle?.rafflePackages[2].ticketsNumber" >{{"only" | translate}}{{' $'+raffle?.rafflePackages[2].price}}{{"price" | translate}} </span>
+               
+              </button>
+            </div>
+            <div class="big-deal-item entries-item"  (click)="modalService.raffleModalData = raffle;modalService.raffleCurrentPayment =raffle?.rafflePackages[3];buyTickets(raffle?.rafflePackages[3]);">
+              <span class="entries-box">60X {{'entries' | translate}}!</span>
+              <div class="tickets">
+                <span class="num">{{raffle?.rafflePackages[3].ticketsNumber}}</span>
+                <span class="text">{{'tickets' | translate}}</span>
+              </div>
+              <button type="button" class="btn-rounded">
+                <!-- <span [attr.data-hover]="'ONLY $'+raffle?.rafflePackages[3].price | translate">{{'only'| translate}} ${{raffle?.rafflePackages[3].price}}</span> -->
+                <!-- <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[3].price">{{"only" | translate}}{{' $'+raffle?.rafflePackages[3].price}}</span> -->
+                <span [attr.data-hover]="['sold_out' | translate ]" *ngIf="this.raffle.availableTickets < raffle?.rafflePackages[3].ticketsNumber" >{{'sold_out' | translate}}</span>
+                <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[3].price +['price' | translate]" *ngIf="this.raffle.availableTickets >= raffle?.rafflePackages[3].ticketsNumber" >{{"only" | translate}}{{' $'+raffle?.rafflePackages[3].price}}{{"price" | translate}} </span>
+                
+              </button>
+            </div>
+            <div class="big-deal-item entries-item" (click)="modalService.raffleCurrentPayment =raffle?.rafflePackages[4];modalService.raffleModalData = raffle;buyTickets(raffle?.rafflePackages[4]);">
+              <span class="entries-box">100X {{'entries' | translate}}!</span>
+              <div class="tickets">
+                <span class="num">{{raffle?.rafflePackages[4].ticketsNumber}}</span>
+                <span class="text">{{'tickets' | translate}}</span>
+              </div>
+              <button type="button" class="btn-rounded" >
+                <!-- <span [attr.data-hover]="'ONLY $'+raffle?.rafflePackages[4].price | translate">{{'only' | translate}} ${{raffle?.rafflePackages[4].price}}</span> -->
+                <!-- <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[4].price">{{"only" | translate}}{{' $'+raffle?.rafflePackages[4].price}}</span> -->
+                <span [attr.data-hover]="['sold_out' | translate ]" *ngIf="this.raffle.availableTickets < raffle?.rafflePackages[4].ticketsNumber" >{{'sold_out' | translate}}</span>
+                <span [attr.data-hover]="['only' | translate ]+' $'+raffle?.rafflePackages[4].price +['price' | translate]" *ngIf="this.raffle.availableTickets >= raffle?.rafflePackages[4].ticketsNumber" >{{"only" | translate}}{{' $'+raffle?.rafflePackages[4].price}}{{"price" | translate}} </span>
+                
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="ticket_show_section">
+      <div class="parmit_ticket_section">
+        <div class="parent_ticket_permit">
+          <!-- <span class="ml-2"><strong>{{'raffle_permit_number' | translate}}</strong>:<span class="permit_Number mr-2 ml-1">{{ this.raffle.permitNumber}}</span></span> |
+          <span class="ml-2"><strong>{{'raffle_max_tickets' | translate}}</strong>:<span class="total_ticket mr-2 ml-1">{{ this.raffle.totalTickets}}</span></span> 
+          -->
+          <span class="ml-2"><strong>SEGOB</strong>:<span class="permit_Number mr-2 ml-1">{{ this.raffle.permitNumber}}</span></span> |
+          <span class="ml-2"><strong>Emisión</strong>:<span class="total_ticket mr-2 ml-1">{{ this.raffle.totalTickets}}</span></span> 
+          
+        </div>
+       </div>
+    </section>
+
+  </div>
+</ng-template>
+  
