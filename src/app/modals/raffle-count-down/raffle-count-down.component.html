@@ -1,8 +1,0 @@
-<div class="modal-body flex-column raffle-count-down">
-  <div>
-    <img class="raffle-count-down-fireworkImg" src="../../../assets/images/fireworks.png">
-  <section class="raffle-count-down-section">
-    <app-countdown (finished)="finishedHandler($event)" [endDate]="myRaffles?.raffleDate"
-                        [id]="myRaffles?.raffleId" [class]="myRaffles?.hideDay ? 'hideDayHourMinute':'showdayclass'"></app-countdown>
-  </section></div>
-</div>
